@@ -25,7 +25,7 @@ After downloading it, untar it in the projects folder, such that the directories
 
 # Terms of use
 
-=SIMIO= is distributed under the [[https://opensource.org/licenses/MIT][MIT license]] and can be used, changed
+=SIMIO= is distributed under the [https://opensource.org/licenses/MIT][MIT license] and can be used, changed
 and redistributed freely. But we do ask you to provide a reference to
 =SIMIO= when using it. This reference will be posted soon. If no reference has been posted
 by the time of publishing, please refer the usage of the package to the webpage www.nicokurtovic.com/SIMIO. 
