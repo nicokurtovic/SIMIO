@@ -22,7 +22,7 @@ copyright = '2022, Nicolas Kurtovic'
 author = 'Nicolas Kurtovic'
 
 # The full version, including alpha/beta/rc tags
-release = '1.1'
+release = '1.0'
 
 # -- General configuration ---------------------------------------------------
 
@@ -61,7 +61,7 @@ if not on_rtd:
     html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 
 html_theme = "sphinx_rtd_theme"
-html_static_path = ['../_static']
+html_static_path = ['_static']
 #html_favicon = "_static/favicon.png"
-html_logo = "../_static/SIMIO.png"
+html_logo = "_static/SIMIO.png"
 html_theme_options = {"logo_only": True}
