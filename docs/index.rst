@@ -13,12 +13,11 @@ Installation
 SIMIO comes in a self-contained folder, and no further installation is needed. To
 use the SIMIO functions you need to execute the CASA software from the SIMIO folder.
 
-Contents
+Tutorials
 --------
 
 .. toctree::
    :maxdepth: 2
-   :caption: Tutorials
    
    tutorials/tutorial_1
 
