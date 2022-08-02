@@ -25,7 +25,7 @@ Contents
 Support
 -------
 
-If you are having issues, please open a `issue`_ on the GitHub page, or send me a
+If you are having issues, please open a issue on the GitHub page, or send me a
 message to my email address.
 
 
@@ -34,4 +34,4 @@ License
 
 The project is licensed under the `MIT license`_.
 
-.. _MIT license: https://github.com/richteague/eddy/blob/master/LICENSE.md
+.. _MIT license: https://github.com/nicokurtovic/SIMIO/blob/master/LICENSE.md
