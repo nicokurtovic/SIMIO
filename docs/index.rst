@@ -19,6 +19,8 @@ Contents
 .. toctree::
    :maxdepth: 2
    :caption: Tutorials
+   
+   tutorials/tutorial_1
 
 
 Support
