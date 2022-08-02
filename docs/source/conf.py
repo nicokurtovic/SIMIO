@@ -12,7 +12,7 @@
 #
 import os
 import sys
-sys.path.insert(0, os.path.abspath('.'), os.path.abspath('./..'))
+sys.path.insert(0, os.path.abspath('.'))
 # autodoc_member_order = 'bysource'  # uncomment to not have alphabetical list.
 
 # -- Project information -----------------------------------------------------
@@ -61,7 +61,7 @@ if not on_rtd:
     html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 
 html_theme = "sphinx_rtd_theme"
-html_static_path = ['_static']
+html_static_path = ['../_static']
 #html_favicon = "_static/favicon.png"
-html_logo = "_static/SIMIO.png"
+html_logo = "../_static/SIMIO.png"
 html_theme_options = {"logo_only": True}
