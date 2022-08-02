@@ -34,4 +34,4 @@ License
 
 The project is licensed under the `MIT license`_.
 
-.. _MIT license: https://github.com/nicokurtovic/SIMIO/blob/master/LICENSE.md
+.. _MIT license: https://github.com/nicokurtovic/SIMIO/blob/main/LICENSE
