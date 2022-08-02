@@ -1,32 +1,3 @@
-
-Skip to content
-Pull requests
-Issues
-Marketplace
-Explore
-@nicokurtovic
-nicokurtovic /
-SIMIO
-Public
-
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security
-Insights
-
-    Settings
-
-SIMIO/docs/source/conf.py /
-@nicokurtovic
-nicokurtovic Updated _static path
-Latest commit 98a927e 39 minutes ago
-History
-1 contributor
-67 lines (53 sloc) 2.2 KB
 # Configuration file for the Sphinx documentation builder.
 #
 # This file only contains a selection of the most common options. For a full
@@ -94,20 +65,3 @@ html_static_path = ['../_static']
 #html_favicon = "_static/favicon.png"
 html_logo = "../_static/SIMIO.png"
 html_theme_options = {"logo_only": True}
-Footer
-© 2022 GitHub, Inc.
-Footer navigation
-
-    Terms
-    Privacy
-    Security
-    Status
-    Docs
-    Contact GitHub
-    Pricing
-    API
-    Training
-    Blog
-    About
-
-You have no unread notifications
