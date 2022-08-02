@@ -20,7 +20,7 @@ Contents
    :maxdepth: 2
    :caption: Tutorials
 
-   tutorials/tutorial1
+   tutorials/tutorial_1
 
 Support
 -------
