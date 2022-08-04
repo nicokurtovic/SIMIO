@@ -20,7 +20,7 @@ Click here to download this example project: [SolarS_HD163296.tar.gz](https://ke
 After downloading it, untar it in the projects folder, such that the directories have the following order: /path_to_SIMIO/SIMIO/projects/SolarS_HD163296/ .
 
 <p align="center">
-<img src="https://github.com/nicokurtovic/SIMIO/blob/main/SolarS_HD163296_comparison.png" width="1024"/>
+<img src="https://github.com/nicokurtovic/SIMIO/blob/main/docs/_static/SolarS_HD163296_comparison.png" width="1024"/>
 </p>
 
 
