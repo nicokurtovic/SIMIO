@@ -2,7 +2,7 @@
 SIMIO is a collection of codes designed to help you compare your radiative transfer images with existing ALMA observations. Please check www.nicokurtovic.com/SIMIO for a full description of the package.
 
 <p align="center">
-<img src="https://github.com/nicokurtovic/SIMIO/blob/main/SIMIO_logo.png" width="256"/>
+<img src="https://github.com/nicokurtovic/SIMIO/blob/main/docs/_static/SIMIO_logo.png" width="256"/>
 </p>
 
 # Get Started
