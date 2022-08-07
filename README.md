@@ -1,5 +1,5 @@
 # SIMIO: from SIMulatIons to Observations
-SIMIO is a collection of codes designed to help you compare your radiative transfer images with existing ALMA observations. Please check www.nicokurtovic.com/SIMIO for a full description of the package.
+SIMIO is a collection of codes designed to help you compare your radiative transfer images with existing ALMA observations. Please check www.nicolaskurtovic.com/simio for a full description of the package.
 
 <p align="center">
 <img src="https://github.com/nicokurtovic/SIMIO/blob/main/docs/_static/SIMIO_logo.png" width="256"/>
@@ -29,4 +29,4 @@ After downloading it, untar it in the projects folder, such that the directories
 SIMIO is distributed under the [MIT license](https://opensource.org/licenses/MIT) and can be used, changed
 and redistributed freely. But we do ask you to provide a reference to
 SIMIO when using it. This reference will be posted soon. If no reference has been posted
-by the time of publishing, please refer the usage of the package to the webpage www.nicokurtovic.com/SIMIO. 
+by the time of publishing, please refer the usage of the package to the webpage www.nicolaskurtovic.com/simio. 
