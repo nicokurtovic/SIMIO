@@ -5,6 +5,7 @@
 
 '''
 This is an example code with the step-by-step of how to use SIMIO.
+It works with SIMIO-continuum v1.0 and newer.
 '''
 
 # Import needed python packages
