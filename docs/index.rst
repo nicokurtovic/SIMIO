@@ -10,7 +10,6 @@ a full description of the package.
    :caption: Content
    
    content/content
-   content/installation
 
 Installation
 ------------
@@ -23,6 +22,7 @@ Tutorials
 
 .. toctree::
    :maxdepth: 2
+   :hidden:
    :caption: Tutorials
    
    tutorials/tutorial_1
