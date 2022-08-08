@@ -18,6 +18,7 @@ Tutorials
 
 .. toctree::
    :maxdepth: 2
+   :caption: Tutorials
    
    tutorials/tutorial_1
    tutorials/tutorial_2
