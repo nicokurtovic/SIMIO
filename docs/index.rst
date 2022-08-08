@@ -5,7 +5,12 @@ SIMIO - SIMulatIons to Observations
 images with existing ALMA observations. Please check www.nicokurtovic.com/SIMIO for
 a full description of the package.
 
-
+.. toctree::
+   :maxdepth: 2
+   :caption: Content
+   
+   content/content
+   content/installation
 
 Installation
 ------------
