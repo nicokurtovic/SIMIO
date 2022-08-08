@@ -34,7 +34,8 @@ extensions = [
     'sphinx.ext.coverage',
     'sphinx.ext.napoleon',
     'sphinx.ext.imgmath',
-    'sphinx.ext.mathbase',
+    'sphinx.ext.pngmath',
+    'sphinx.ext.mathjax',
     'nbsphinx',
 ]
 
