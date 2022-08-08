@@ -9,5 +9,5 @@ Let us assume there is an interesting object in the sky, and we wish to study it
 As ALMA is an interferometer, it does not directly observes the sky brightness distribution :math:`I` (as most optical and near infrared cameras), but it rather observes the visibility function :math:`V` of the sky brightness, which is calculated as the Fourier Transform of the brightness distribution:
 
     .. math::
-        \mathscr{V}(u, v) = \int \int \mathscr{I}(l,m) \, e^{-2\pi i (ul + vm)}\,\text{d}l\,\text{d}m
+        V(u, v) = \int \int I(l,m) \, e^{-2\pi i (ul + vm)}\,\text{d}l\,\text{d}m
 
