@@ -9,7 +9,9 @@ a full description of the package.
    :maxdepth: 2
    :caption: Content
    
-   content/content
+   content/content_1
+   content/content_2
+   content/content_3
 
 Installation
 ------------
@@ -17,12 +19,9 @@ Installation
 SIMIO comes in a self-contained folder, and no further installation is needed. To
 use the SIMIO functions you need to execute the CASA software from the SIMIO folder.
 
-Tutorials
---------
 
 .. toctree::
    :maxdepth: 2
-   :hidden:
    :caption: Tutorials
    
    tutorials/tutorial_1
