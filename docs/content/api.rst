@@ -4,6 +4,8 @@
 API
 ===
 
+Test 
+
 Here we describe all the functions used to collapse the spectral cube which are
 typically called by the command line interface. However, importing these into
 your workflow may be useful.
