@@ -1,5 +1,5 @@
-.. module:: codes.simio_obj
-.. simio_obj
+.. module:: simio.codes
+.. codes
 
 API
 ===
