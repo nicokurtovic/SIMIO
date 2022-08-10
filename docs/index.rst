@@ -9,6 +9,7 @@ a full description of the package.
    :maxdepth: 2
    :caption: Content
    
+   content/api
    content/content_0
    content/content_1
    content/content_2
