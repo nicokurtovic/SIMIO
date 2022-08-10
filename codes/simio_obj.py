@@ -104,14 +104,14 @@ class simio_image():
 
 
 class simio_object():
-    '''
+    r'''
     The simio main object
 
     The simio_object is the main object of the simio package. It contains the
     functions and properties needed to generate the synthetic visibilities and
     images from a simulation.
 
-    PARAMETERS:
+    Args:
         - object_name (str): Name of the project.
         - out_file_name (str): Name of the RADMC3D out file, or npy file name.
         - template (str): Template to be used as observation base.
