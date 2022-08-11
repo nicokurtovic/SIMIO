@@ -19,7 +19,7 @@ Main functions
 --------------
 
 +--------------------------------------------------------------------------------+
-| **simio_object**():                                                            |
+| **simio_object**(aaaaaaaaa):                                                   |
 |                                                                                |
 | Certain model fields vary in structure depending on the ``type`` field of the  |
 | model. There are three model types: **notebook**, **file**, and **directory**. |
