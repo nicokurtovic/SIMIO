@@ -24,7 +24,7 @@ Main functions
 | Certain model fields vary in structure depending on the ``type`` field of the  |
 | model. There are three model types: **notebook**, **file**, and **directory**. |
 |                                                                                |
-| *Args*:                                                                      |
+| *Args*:                                                                        |
 |       - ``object_name`` (str): Name of the project.                            |
 |       - ``out_file_name`` (str): Name of the RADMC3D out file, or npy file     |
 |                    name.                                                       |
