@@ -31,7 +31,7 @@ Main functions
    :param use_geom: (bool) Set to True if you want to use the geometry of the
                     template. If you set it to False, then the parameters
                     ``add_inc``, ``add_pa``, ``add_dRa``, ``add_dDec`` are
-                    activated.
+                    activated. |
                     Default: ``True``
    :param distance: (float) Distance at which your model has to be positioned, 
                     in **parsecs**. If set to None, then the distance of the
@@ -63,9 +63,8 @@ Main functions
    to ``False``, then the function will only return the string of the ms file
    path, but not generate the ms file itself.
    
-   ..warning:: Use it if you want to calculate the visibilities with ``CASA ft``.
+   .. warning:: Use it if you want to calculate the visibilities with ``CASA ft``.
    
-   Args:
    :param simobj: (simio_object) **SIMIO** object containing the information of
                    the synthetic observation that will be generated.
    :param generate_ms: (bool) Set to ``True`` if the measurement set is to be 
@@ -85,13 +84,12 @@ Main functions
    the model measurement set (``mod_ms`` from **SIMIO** tutorials), and returns
    a measurement set with the same name, but with added simple thermal noise.
     
-   ..warning: The noise level in the measurement set will not be the same as
-                   you input in ``level``. After succesful execution, generate
-                   an image to measure the noise level in the residuals image,
-                   and then run **SIMIO** again to iteratively find the correct
-                   ``level`` for the noise desired.
+   .. warning:: The noise level in the measurement set will not be the same as
+      you input in ``level``. After succesful execution, generate
+      an image to measure the noise level in the residuals image,
+      and then run **SIMIO** again to iteratively find the correct
+      ``level`` for the noise desired.
     
-   Args:
    :param mod_ms: (str) Name of the measurement set to be modified.
    :param level: (str) Level of noise to be given to ``sm.setnoise``, and
                    passed directly to ``simplenoise``.
@@ -118,7 +116,6 @@ Imaging functions
    For a more customized clean, see ``custom_clean`` function, or 
    ``tclean_wrapper``.
 
-   Args:
    :param simobj: (simio_object) A simio object that already went through
                   the ``get_mod_ms`` function.
    :param interactive: (boolean) Interactive clean. Recommended to set ``True``.
