@@ -8,12 +8,18 @@ a full description of the package.
 .. toctree::
    :maxdepth: 2
    :caption: Content
-   
-   content/api_simio
+
    content/content_0
    content/content_1
    content/content_2
    content/content_3
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Information
+   
+   content/api_simio
+
 
 Installation
 ------------
