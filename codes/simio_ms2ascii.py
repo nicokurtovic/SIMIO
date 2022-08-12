@@ -37,17 +37,21 @@ execfile(current_dir+'codes/simio_clean.py')
 
 def ms_to_ascii(ms_cont, ascii_file, with_flags):
     '''
-    Takes ms_cont, and writes the visibilities in a file named ascii_file. The
-    visibility table will have the structure of (u, v, Real, Imag, weights).
+    Takes ms_cont, and writes the visibilities in a file named ``ascii_file``.
+    The visibility table will have the structure of (u, v, Real, Imag, weights).
     If you do not want to include flagged data in your visibility table, then
-    set with_flags to False.
+    set ``with_flags`` to ``False``.
     This functions averages the two linear polarizations.
-    INPUT:
-        - ms_cont (str): Name of the measurement set file.
-        - ascii_file (str): Name of the ascii_file where you want to write the
-                         visibilities. Must end in .txt or .dat
-        - with_flags (bool): True to extract the visibilities flagged, False to
-                         exclude them.
+    
+    Args:
+        - ms_cont: (str) Name of the measurement set file from where to
+                    extract the visibility table.
+        - ascii_file: (str) Name of the ``ascii_file`` where you want to write
+                    the visibilities. Must end in ``.txt`` or ``.dat``.
+        - with_flags: (bool) ``True`` to extract the visibilities flagged, 
+                    ``False`` to exclude them.
+    Returns:
+        Writes a visibility table with the name of ``ascii_file``.
     '''
     # Use CASA table tools to get columns of UVW, DATA, WEIGHT, etc.
     tb.open(ms_cont)
@@ -135,9 +139,24 @@ def ms_to_ascii(ms_cont, ascii_file, with_flags):
 
 def ascii_to_ms(ascii_file, ms_file, new_ms_file):
     '''
-    Inverse function of ms_to_ascii. It takes a visibility table in a .txt or
-    .dat format, and replaces those visibilities in a ms_file. The ms_file must
-    match exactly the visibility table in number of spw and channels.
+    Inverse function of ms_to_ascii. It takes a visibility table in a ``.txt``
+    or ``.dat`` format, and replaces those visibilities in a ms_file. The
+    ``ms_file`` must match exactly the visibility table in number of spw and
+    channels.
+    
+    Args:
+        - ascii_file: (str) Name of the ascii_file where you want to write the
+                    visibilities. Must end in ``.txt`` or ``.dat``
+        - ms_file: (str) Path to the original measurement set, from where the
+                    ``new_ms_file`` will be copied. This file will not be
+                    modified. Both ``ascii file`` and ``ms_file`` must have the
+                    same number of visibility measurements.
+        - new_ms_file: (str) Name of the new measurement set. It will have the
+                    same structure as ``ms_file``, but the visibilities will be
+                    written from the ``ascii_file``.
+    Returns
+        Returns a measurement set with the name of ``new_ms_file``, that
+        contains the visibilities of ``ascii_file``.
     '''
     # Read ascii file
     model_uu, model_vv, model_real, model_imag, model_wspec = np.loadtxt(ascii_file,unpack=True)
@@ -181,7 +200,14 @@ def ascii_to_ms(ascii_file, ms_file, new_ms_file):
 def _write_temp_uvtables(simobj):
     '''
     Write the template uvtable. This is wrapper to write the uvtable of the
-    simio_object template, to be used when executing SIMIO with galario.
+    ``simio_object`` template, to be used when executing *SIMIO* with
+    ``galario``.
+    
+    Args:
+        - simobj: (simio_object) *SIMIO* object containing the synthetic
+                    observation that will be extracted.
+    Returns:
+        Writes the visibility table of each spectral window.
     '''
     # Remove previous existent uvtables
     os.system('rm ' + simobj._source_dir + 'msfiles/'  + simobj._prefix + '_cont_spw*.txt')
@@ -206,8 +232,15 @@ def _write_temp_uvtables(simobj):
 
 def _write_mod_uvtables(simobj):
     '''
-    Writes the uvtables of the model in simio_object. This function is written
-    to work with the galario mode of simio_object.
+    Writes the uvtables of the model in ``simio_object``. This function is
+    written to work with the ``galario`` mode of ``simio_object``.
+    
+    Args:
+        - simobj: (simio_object) *SIMIO* object containing the synthetic
+                    observation that will be written.
+    Returns:
+        Writes the visibility table of each spectral window, with the
+        visibilities from the model.
     '''
     # Iterate over all spws
     for i in simobj._spw_temp.astype(str):
@@ -238,9 +271,9 @@ def _write_mod_uvtables(simobj):
 
 def _write_mod_ms(simobj):
     '''
-    After writing the uvtables of the model using the _write_mod_uvtables
+    After writing the uvtables of the model using the ``_write_mod_uvtables``
     function, this function takes them and converts them in msfiles, to generate
-    the msfile of the simio_object model. This function is used then SIMIO is
+    the msfile of the simio_object model. This function is used then *SIMIO* is
     calculating the fourier transform with galario.
     '''
     # List for storing the names of auxiliary ms files
@@ -272,12 +305,22 @@ def _write_mod_ms(simobj):
 
 
 def get_mod_ms(simobj, generate_ms=True):
-    '''
-    IMPORTANT: Use it if you want to calculate the visibilities with galario.
-    
-    Generates the model ms file for the simobj. If generate_ms is set to False,
-    then the function will only return the string of the ms file path, but not
-    generate the ms file itself.
+    '''    
+    Generates the model measurement set file for the ``simobj``. If the
+    parameter ``generate_ms`` is set to ``False``, then the function will only
+    return the string of the ms file path, but not generate the ms file itself.
+
+    ..warning:: Use it if you want to calculate the visibilities with galario.
+
+    Args:
+        - simobj: (simio_object) **SIMIO** object containing the information of
+                    the synthetic observation that will be generated.
+        - generate_ms: (bool) Set to ``True`` if the measurement set is to be 
+                    generated. Set to ``False`` if only the string with the name
+                    of the measurement set is needed.
+                    Default: ``True``.
+    Returns:
+        - mod_ms: Name of the measurement set with the synthetic observation.
     '''
     # Check if ms has to be generated
     simobj.mod_ms = simobj._source_dir + 'msfiles/' + simobj._prefix + '_model.ms'
@@ -314,11 +357,22 @@ def get_mod_ms(simobj, generate_ms=True):
 
 def get_mod_ms_ft(simobj, generate_ms=True):
     '''
-    IMPORTANT: Use it if you want to calculate the visibilities with CASA ft.
-
-    Generates the model ms file for the simobj. If generate_ms is set to False,
-    then the function will only return the string of the ms file path, but not
-    generate the ms file itself.
+    Generates the model ms file for the simobj. If generate_ms is set to
+    ``False``, then the function will only return the string of the ms file
+    path, but not generate the ms file itself.
+    
+    ..warning:: Use it if you want to calculate the visibilities with ``CASA``
+                ft.
+    
+    Args:
+        - simobj: (simio_object) **SIMIO** object containing the information of
+                    the synthetic observation that will be generated.
+        - generate_ms: (bool) Set to ``True`` if the measurement set is to be 
+                    generated. Set to ``False`` if only the string with the name
+                    of the measurement set is needed.
+                    Default: ``True``.
+    Returns:
+        - mod_ms: Name of the measurement set with the synthetic observation.
     '''
     # Check if ms has to be generated
     simobj.mod_ms = simobj._source_dir + 'msfiles/' + simobj._prefix + '_model.ms'
@@ -367,26 +421,35 @@ def get_mod_ms_ft(simobj, generate_ms=True):
     # Remove indermediate files
     for i in list_model:
         os.system('rm -rf ' + i)
+    # Return name
+    return simobj.mod_ms
 
 
 def change_geom(ms_file, inc=0., pa=0., dRa=0., dDec=0., \
                 datacolumn1='DATA', datacolumn2='DATA', inverse=False):
     '''
     Changes the geometry of an observation, by inclining and rotating the
-    uv-points themselfs.
+    uv-points themselfs. This function modifies the input ``ms_file``.
     
-    INPUT:
-        - ms_file (str): Name of the measurement set you want to incline, rotate
-                         or shift in physical space.
-        - inc (float, degree): Inclination.
-        - pa (float, degree): Position angle, measured from north to east.
-        - dRa (float, arcsec): Shift in RA to be applied to the visibilities.
-        - dDec (float, arcsec): Shift in Dec to be applied to the visibilities.
+    Args:
+        - ms_file: (str) Name of the measurement set you want to incline, rotate
+                    or shift in physical space.
+        - inc:  (float) Inclination, in **degrees**. Default: 0.
+        - pa: (float) Position angle, measured from north to east,
+                    in **degrees**. Default: 0.
+        - dRa: (float) Shift in RA to be applied to the visibilities,
+                    in **arcsec**. Default: 0.
+        - dDec: (float) Shift in Dec to be applied to the visibilities.
+                    in **arcsec**. Default: 0.
         - datacolumn1: 'DATA' or 'MODEL_DATA', column from where the data must
-                       be read.
+                       be read. Default: 'DATA'.
         - datacolumn1: 'DATA' or 'MODEL_DATA', column from where the data must
-                       be written.
-        - inverse (bool): Set False to deproject, or False to project.
+                       be written. Default:'DATA'
+        - inverse (bool): Set ``False`` to deproject, or ``False`` to project.
+                        Default: ``False``
+    Returns:
+        Returns ``True`` if everything worked correctly. The ``ms_file`` will
+        have been modified.
     '''
     # Use CASA table tools to get columns of UVW, DATA, WEIGHT, etc.
     tb.open(ms_file)

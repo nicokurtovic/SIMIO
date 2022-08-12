@@ -104,7 +104,7 @@ class simio_image():
 
 
 class simio_object():
-    r'''
+    '''
     The simio main object
 
     The simio_object is the main object of the simio package. It contains the
@@ -112,33 +112,33 @@ class simio_object():
     images from a simulation.
 
     Args:
-        - object_name (str): Name of the project.
-        - out_file_name (str): Name of the RADMC3D out file, or npy file name.
-        - template (str): Template to be used as observation base.
-        - use_geom (bool): Set to True if you want to use the geometry of the
-                     template. If you set it to False, then the parameters
-                     "add_inc, add_pa, add_dRa, add_dDec" are activated.
-                     Default: True
-        - distance (float): Distance at which your model has to be positioned, 
-                     in parsecs. If set to None, then the distance of the
-                     template will be used.
-                     Default: None
-        - rescale_flux (float): Your model image is rescaled by a scalar, so
-                     that the total flux is rescale_flux. The units are mJy. If
-                     set to None, no flux rescaling is applied.
-                     Default: None
-        - pxsize_au (float): Pixel size in au. If your input model is a '.npy' 
-                     file, then this parameter is mandatory. It is not used if 
-                     your file format is '.out'.
-                     Default: None
-        - add_inc  (float): Incline the source by this value, in degrees.
-                     Default: 0.
-        - add_pa   (float): Rotate the source by this value, in degrees.
-                     Default: 0.
-        - add_dRa  (float): Shift the source by this value in RA, in arcsec.
-                     Default: 0.
-        - add_dDec (float): Shift the source by this value in Dec, in arcsec.
-                     Default: 0.
+        - object_name: (str) Name of the project.
+        - out_file_name: (str) Name of the RADMC3D out file, or npy file name.
+        - template: (str) Template to be used as observation base.
+        - use_geom: (bool) Set to ``True`` if you want to use the geometry of the
+                    template. If you set it to ``False``, then the parameters
+                    "add_inc, add_pa, add_dRa, add_dDec" are activated.
+                    Default: ``True``
+        - distance: (float) Distance at which your model has to be positioned, 
+                    in parsecs. If set to None, then the distance of the
+                    template will be used.
+                    Default: None
+        - rescale_flux: (float) Your model image is rescaled by a scalar, so
+                    that the total flux is rescale_flux. The units are mJy. If
+                    set to None, no flux rescaling is applied.
+                    Default: None
+        - pxsize_au: (float) Pixel size in au. If your input model is a '.npy' 
+                    file, then this parameter is mandatory. It is not used if 
+                    your file format is '.out'.
+                    Default: None
+        - add_inc: (float) Incline the source by this value, in degrees.
+                    Default: 0.
+        - add_pa: (float) Rotate the source by this value, in degrees.
+                    Default: 0.
+        - add_dRa: (float) Shift the source by this value in RA, in arcsec.
+                    Default: 0.
+        - add_dDec: (float) Shift the source by this value in Dec, in arcsec.
+                    Default: 0.
     '''
 
     def __init__(self, object_name, im_file_name, template, use_tempgeom=True, \
@@ -214,13 +214,13 @@ class simio_object():
         be used. The output is a CASA region.
         See https://casa.nrao.edu/casadocs/casa-5.4.1/image-analysis/region-file-format
 
-        PARAMETERS:
-         - mask_semimajor (int,float)= Semimajor axis of the ellipse in arcsec.
-         - inc (int,float)= inclination of the ellipse in degrees.
-         - pa  (int,float)= position angle of the ellipse, measured from the
+        Args:
+            - mask_semimajor: (int,float) Semimajor axis of the ellipse in arcsec.
+            - inc: (int,float) inclination of the ellipse in degrees.
+            - pa: (int,float) position angle of the ellipse, measured from the
                  north to the east, or counter-clock wise, in degrees.
-        OUTPUT:
-         - mask_obj (str)= elliptical mask. This is a CASA region.
+        Returns:
+            - mask_obj: (str) elliptical mask. This is a CASA region.
         '''
         # Semimajor axis size
         if mask_semimajor is None:
@@ -255,9 +255,11 @@ class simio_object():
         radius should be set such that the mask does not include any real 
         emission.
 
-        PARAMETERS:
-         - mask_rin (int,float)= Inner radius of the annulus in arcsec.
-         - mask_rout (int,float)= Outer radius of the annulus in arcsec.
+        Args:
+            - mask_rin: (int,float) Inner radius of the annulus in arcsec.
+            - mask_rout: (int,float) Outer radius of the annulus in arcsec.
+        Returns:
+            - mask_obj: (str) Annulus mask. This is a CASA region.
         '''
         # Inner radius for annulus
         if mask_rin is None:

@@ -25,7 +25,23 @@ from scipy.integrate import trapz, quadrature
 
 def deproject_uv(u, v, Re, Im, inc, pa, dRa, dDec, inverse=False):
     '''
+    Projects and deprojects visibility points based on the input parameters
     
+    Args:
+        - u: (numpy array) Array containing the ``u`` coordinates of the
+                    visibilities.
+        - v: (numpy array) Array containing the ``v`` coordinates of the
+                    visibilities.
+        - Re: (numpy array) Array containing the ``Real`` part of the
+                    visibilities.
+        - Im: (numpy array) Array containing the ``Imaginary`` part of the
+                    visibilities.
+        - inc: (float) Value to incline the visibilities, in **degrees**.
+        - pa: (float) Value to rotate the visibilities, in **degrees**.
+        - dRa: (float) Value to shift the visiblities in RA, in **arcsec**.
+        - dDec: (float) Value to shift the visiblities in Dec, in **arcsec**.
+        - inverse: (bool) Set ``False`` to deproject, set ``True`` to project.
+                    Default: False.
     '''
     # Convert to radian
     pa  = pa  * np.pi / 180.
@@ -60,9 +76,24 @@ def deproject_uv(u, v, Re, Im, inc, pa, dRa, dDec, inverse=False):
 
 
 def py_sampleImage(reference_image, dxy, udat, vdat, dRA=0., dDec=0., PA=0., origin='upper'):
-    """
+    '''
+    Original from ``galario``.
     Python implementation of sampleImage.
-    """
+    
+    Args:
+        - reference_image: (numpy matrix) Name of the image from where the
+                    visibilities will be calculated.
+        - dxy: (float) Pixel size in **rad**. 
+        - udat: (numpy array) Array with the ``u`` coordinates, in 
+                    **wavelength units**.
+        - vdat: (numpy array) Array with the ``u`` coordinates, in 
+                    **wavelength units**.
+        - dRa: (float) Value to shift the visiblities in RA, in **arcsec**.
+        - dDec: (float) Value to shift the visiblities in Dec, in **arcsec**.
+        - PA: (float) Value to rotate the visibilities, in **rad**.
+        - origin: (str) Origin of the coordinate system in the image. It has
+                    to be 'lower' or 'upper'.
+    '''
     if origin == 'upper':
         v_origin = 1.
     elif origin == 'lower':
@@ -124,8 +155,23 @@ def py_sampleImage(reference_image, dxy, udat, vdat, dRA=0., dDec=0., PA=0., ori
 def uvmodel_from_image(model_image, u, v, real_part, imag_part, params, px):
     '''
     Given a model image, its image size and pixel size, it returns the
-    visibilities calculated with galario.
-    The params contain the geometric information of the disk
+    visibilities calculated with ``galario``.
+    The ``params`` contain the geometric information of the disk.
+
+    Args:
+        - model_image: (numpy matrix) 
+        - u: (numpy array) Array with the ``u`` coordinates, in 
+                    **wavelength units**.
+        - v: (numpy array) Array with the ``v`` coordinates, in 
+                    **wavelength units**.
+        - real_part: (numpy_array) Not really needed it. Will be corrected in
+                    a future version. Must be same size as ``u``.
+        - imag_part: (numpy_array) Not really needed it. Will be corrected in
+                    a future version. Must be same size as ``u``.
+        - params: (list) List with the geometrical parameters of the disk, in
+                    the order of [``dRa``, ``dDec``, ``inc``, ``pa``] and in
+                    units of [**arcsec**, **arcsec**, **degrees**, **degrees**].
+        - px: (float) Pixel size in **arcsec**.
     '''
     # Params
     dRa, dDec, inc, pa = params

@@ -12,6 +12,7 @@ import glob
 
 class simplereaddataobject(object):
     '''
+    Original from RADMC3D.
     Generic data object for the RADMC-3D simpleread.py functions.
     '''
     def __init__(self,datatype):
@@ -20,16 +21,16 @@ class simplereaddataobject(object):
 
 def read_out_image(imagename, indexorder='fortran'):
     '''
-    Reading the image.out file.
+    Original from RADMC3D, to read the image.out file.
 
-    ARGUMENTS:
-      indexorder        If 'fortran' then converting array to fortran 
-                        index order (default). Else use Python/C order.
+    Args:
+      indexorder: If 'fortran' then converting array to fortran 
+                  index order (default). Else use Python/C order.
 
-    RETURNS:
-      Data object containing:
-        .freq           Frequency at which the image is taken
-        .image          An array with the image intensity in erg/(s.cm^2.Hz.ster)
+    Returns:
+        Data object containing:
+        - freq: Frequency at which the image is taken
+        - image: An array with the image intensity in erg/(s.cm^2.Hz.ster)
     '''
     pc        = 3.08572e18     # Parsec                  [cm]
     cc        = 2.99792458e10  # Light speed             [cm/s]
