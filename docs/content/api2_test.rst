@@ -55,13 +55,13 @@ Main functions
                     Default: 0.
 
 
-.. function:: function simio_object get_mask(mask_semimajor=None, inc=None, pa=None)
-
-    testing if this works
+    .. function:: function simio_object get_mask(mask_semimajor=None, inc=None, pa=None)
     
-    :param testeo: aaaaa aaa aa a
-    :param testeob: aaaaa aaa aa b
-    :param testeoc: aaaaa aaa aa c
+        testing if this works
+        
+        :param testeo: aaaaa aaa aa a
+        :param testeob: aaaaa aaa aa b
+        :param testeoc: aaaaa aaa aa c
 
 
 .. cpp:function:: simio_object.get_mask(mask_semimajor=None, inc=None, pa=None)
@@ -75,9 +75,14 @@ Main functions
     :param testeoc: aaaaa aaa aa c
 
 
-.. js:module:: module_a.submodule
+.. js:module:: simio_object
 
-* Link to :js:class:`ModTopLevel`
+.. js:function:: get_mask(mask_semimajor=None, inc=None, pa=None)
 
-.. js:class:: ModTopLevel(mask_semimajor=None, inc=None, pa=None)
-   
+
+
+other test
+
+.. module:: simio_object
+
+.. function:: get_mask(mask_semimajor=None, inc=None, pa=None)
