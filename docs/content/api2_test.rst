@@ -18,10 +18,7 @@ the "simio_object", and therefore you will not interact directly with them.
 Main functions
 ==============
 
-.. class:: simio_object(object_name, out_file_name, template, 
-                        use_geom=True, distance=None, rescale_flux=None, 
-                        pxsize_au=None, add_inc=0, add_pa=0, add_dRa=0, 
-                        add_dDec=0)
+.. class:: simio_object(object_name, out_file_name, template, use_geom=True, distance=None, rescale_flux=None, pxsize_au=None, add_inc=0, add_pa=0, add_dRa=0, add_dDec=0)
    
    The simio_object is the main object of the simio package. It contains
    the functions and properties needed to generate the synthetic
@@ -64,3 +61,13 @@ Main functions
     
     :param testeo: aaaaa aaa aa a
 
+
+.. cpp:function:: simio_object.get_mask(mask_semimajor=None, inc=None, pa=None)
+
+   Some function type thing
+   
+    :param testeoa: aaaaa aaa aa a
+    :param testeob: aaaaa aaa aa b
+    :param testeoc: aaaaa aaa aa c
+
+   
