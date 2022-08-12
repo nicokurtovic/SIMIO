@@ -55,14 +55,18 @@ Main functions
                     Default: 0.
 
 
-.. function:: testing(aaa)
+.. function:: function simio_object get_mask(mask_semimajor=None, inc=None, pa=None)
 
     testing if this works
     
     :param testeo: aaaaa aaa aa a
+    :param testeob: aaaaa aaa aa b
+    :param testeoc: aaaaa aaa aa c
 
 
 .. cpp:function:: simio_object.get_mask(mask_semimajor=None, inc=None, pa=None)
+
+   const MyType Foo(const MyType bar)
 
    Some function type thing
    
@@ -70,4 +74,10 @@ Main functions
     :param testeob: aaaaa aaa aa b
     :param testeoc: aaaaa aaa aa c
 
+
+.. js:module:: module_a.submodule
+
+* Link to :js:class:`ModTopLevel`
+
+.. js:class:: ModTopLevel(mask_semimajor=None, inc=None, pa=None)
    
