@@ -18,11 +18,14 @@ the "simio_object", and therefore you will not interact directly with them.
 Main functions
 ==============
 
-.. class:: simio_object(object_name, out_file_name, template, use_geom, distance, rescale_flux, pxsize_au, add_inc, add_pa, add_dRa, add_dDec)
+.. class:: simio_object(object_name, out_file_name, template, 
+                        use_geom=True, distance=None, rescale_flux=None, 
+                        pxsize_au=None, add_inc=0, add_pa=0, add_dRa=0, 
+                        add_dDec=0)
    
-   The simio_object is the main object of the simio package. It contains the
-   functions and properties needed to generate the synthetic visibilities and
-   images from a simulation.
+   The simio_object is the main object of the simio package. It contains
+   the functions and properties needed to generate the synthetic
+   visibilities and images from a simulation.
    
    :param object_name: (str) Name of the project.
    :param out_file_name: (str) Name of the RADMC3D ``.out`` file, or ``.npy``
@@ -34,22 +37,30 @@ Main functions
                     activated.
                     Default: True
    :param distance: (float) Distance at which your model has to be positioned, 
-                    in parsecs. If set to None, then the distance of the
+                    in **parsecs**. If set to None, then the distance of the
                     template will be used.
                     Default: None
    :param rescale_flux: (float) Your model image is rescaled by a scalar, so
-                    that the total flux is rescale_flux. The units are mJy. If
-                    set to None, no flux rescaling is applied.
+                    that the total flux is rescale_flux. The units are **Jy**.
+                    If set to None, no flux rescaling is applied.
                     Default: None
-   :param pxsize_au: (float) Pixel size in au. If your input model is a ``.npy``
+   :param pxsize_au: (float) Pixel size in **au**. If your input model is a ``.npy``
                     file, then this parameter is mandatory. It is not used if 
                     your file format is ``.out``.
                     Default: None
-   :param add_inc: (float) Incline the source by this value, in degrees.
+   :param add_inc: (float) Incline the source by this value, in **degrees**.
                     Default: 0.
-   :param add_pa: (float) Rotate the source by this value, in degrees.
+   :param add_pa: (float) Rotate the source by this value, in **degrees**.
                     Default: 0.
-   :param add_dRa: (float) Shift the source by this value in RA, in arcsec.
+   :param add_dRa: (float) Shift the source by this value in RA, in **arcsec**.
                     Default: 0.
-   :param add_dDec: (float) Shift the source by this value in Dec, in arcsec.
+   :param add_dDec: (float) Shift the source by this value in Dec, in **arcsec**.
                     Default: 0.
+
+
+.. function:: testing(aaa)
+
+    testing if this works
+    
+    :param testeo: aaaaa aaa aa a
+
