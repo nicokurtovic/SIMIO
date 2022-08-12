@@ -73,7 +73,7 @@ Main functions
                    Default: ``True``.
 
    Returns:
-       - mod_ms: Name of the measurement set with the synthetic observation.
+       - **mod_ms**: Name of the measurement set with the synthetic observation.
 
 
 .. function:: add_noise(mod_ms, level='10.2mJy')
@@ -95,11 +95,11 @@ Main functions
                    passed directly to ``simplenoise``.
 
    Returns:
-               (int) Returns 1 if everything worked correctly. The noiseless
-               measurement set will be copied into a file with the same
-               name but ending in ``_no_noise.ms``, while the ``mod_ms``
-               file will be modified to include the requested 
-               noise.
+      - (int) Returns 1 if everything worked correctly. The noiseless
+      measurement set will be copied into a file with the same
+      name but ending in ``_no_noise.ms``, while the ``mod_ms``
+      file will be modified to include the requested 
+      noise.
 
 
 Imaging functions
@@ -127,6 +127,10 @@ Imaging functions
                   2sigma of DSHARP-like rms.
                   Default: ``'2.4e-02mJy'``.
 
+   Returns:
+       - **Fits files** containing the reconstructed images, including the
+       residuals, psf, JvM corrected image, and non-JvM corrected images.
+
 
 .. function:: custom_tclean(simobj, imsize, cellsize, robust, mask, threshold, scales=[0, 3, 8], gain=0.05, smallscalebias=0.45, cyclefactor=1.75, niter=10000, imagename=None, interactive=False, remove_end=True)
     
@@ -138,45 +142,48 @@ Imaging functions
    For more details on some of these parameters, check the tclean task in
    `tclean documentation <https://casa.nrao.edu/docs/taskref/tclean-task.html>`_
 
-    Args:
-        - simobj: (simio_object) A simio object that already went through
+   :param simobj: (simio_object) A simio object that already went through
                     the ``get_mod_ms`` function.
-        - imsize: (int) Image size in pixels.
-        - cellsize: (float) Pixel size, must be input in arcsec.
-        - mask: (str) Mask for cleaning the emission, must be a ``CASA`` region
+   :param imsize: (int) Image size in pixels.
+   :param cellsize: (float) Pixel size, must be input in arcsec.
+   :param mask: (str) Mask for cleaning the emission, must be a ``CASA`` region
                     format.
-        - threshold: (float) Threshold for how deep the ``CLEAN`` should go, in mJy.
+   :param threshold: (float) Threshold for how deep the ``CLEAN`` should go, in mJy.
                     For JvM corrected images, set the threshold to be 4 times
                     the rms of the image.
                     For model comparison with other models, you should clean up
                     to 2 or 1 sigma.
-        - scales: (list of int) Scales to use in multiscale, in pixels.
+   :param scales: (list of int) Scales to use in multiscale, in pixels.
                     Default: [0, 3, 8]
-        - gain: (float) Fraction of the source flux to subtract out of the
+   :param gain: (float) Fraction of the source flux to subtract out of the
                     residual image for the ``CLEAN`` algorithm.
                     Default: 0.05
-        - smallscalebias: (float) Controls the bias towards smaller scales.
+   :param smallscalebias: (float) Controls the bias towards smaller scales.
                     Default: 0.45
-        - cyclefactor: (float) Computes the minor-cycle stopping threshold.
+   :param cyclefactor: (float) Computes the minor-cycle stopping threshold.
                     Default: 1.75
-        - niter: (int) Total number of iterations.
+   :param niter: (int) Total number of iterations.
                     Default: 10000
-        - imagename: (str) Sufix name for the images, it will be saved in the
+   :param imagename: (str) Sufix name for the images, it will be saved in the
                     same folder as in default.
                     Default: ``None``
-        - interactive: (boolean) Interactive clean. Recommended to set ``True``.
+   :param interactive: (boolean) Interactive clean. Recommended to set ``True``.
                     Default: ``False``
-        - remove_end: (boolean) If ``True``, will remove the folder files after
+   :param remove_end: (boolean) If ``True``, will remove the folder files after
                     finishing the imaging.
                     Default: ``None``
+
+    Returns:
+       - **Fits files** containing the reconstructed images, including the
+       residuals, psf, JvM corrected image, and non-JvM corrected images.
 
 
 Masking functions
 =================
 
-.. module:: simio_object
+.. mask.module:: simio_object
 
-.. function:: get_mask(mask_semimajor=None, inc=None, pa=None)
+.. mask.function:: get_mask(mask_semimajor=None, inc=None, pa=None)
 
    Location: ``codes/simio_obj.py``
    
@@ -185,18 +192,15 @@ Masking functions
    be used. The output is a ``CASA`` region.
    See `CASA Regions format <https://casa.nrao.edu/casadocs/casa-5.4.1/image-analysis/region-file-format>`_ for more information
 
-   Args:
    :param mask_semimajor: (int,float) Semimajor axis of the ellipse in arcsec.
    :param inc: (int,float) inclination of the ellipse in degrees.
    :param pa: (int,float) position angle of the ellipse, measured from the
                   north to the east, or counter-clock wise, in degrees.
    Returns:
-   :param mask_obj: (str) elliptical mask. This is a ``CASA`` region.
+      - **mask_obj**: (str) elliptical mask. This is a ``CASA`` region.
 
 
-.. module:: simio_object
-
-.. function:: get_mask(mask_semimajor=None, inc=None, pa=None)
+.. mask.function:: get_mask(mask_semimajor=None, inc=None, pa=None)
 
    Location: ``codes/simio_obj.py``
    
@@ -205,11 +209,11 @@ Masking functions
    radius should be set such that the mask does not include any real 
    emission.
 
-   Args:
    :param mask_rin: (int,float) Inner radius of the annulus in arcsec.
    :param mask_rout: (int,float) Outer radius of the annulus in arcsec.
+
    Returns:
-   :param mask_obj: (str) Annulus mask. This is a ``CASA`` region.
+      - **mask_res**: (str) Annulus mask. This is a ``CASA`` region.
 
 
 Additional Imaging functions
@@ -221,8 +225,7 @@ Additional Imaging functions
 
    Wrapper to delete the images generated by tclean.
     
-   Args:
-   : param imagename: (str) Base name for the images to be deleted.
+   :param imagename: (str) Base name for the images to be deleted.
 
 
 .. function:: write_fits(im_base_name)
@@ -232,8 +235,7 @@ Additional Imaging functions
    Given the ``im_base_name`` from ``tclean``, it takes the products and
    write fits files of them.
    
-   Args:
-   : param im_base_name: (str) Base name for the images to be written in fits
+   :param im_base_name: (str) Base name for the images to be written in fits
                        format.
 
 
@@ -241,16 +243,16 @@ Additional Imaging functions
 
    Location: ``codes/simio_clean.py``
 
-   Original from DSHARP.
+   Original from `DSHARP <https://almascience.eso.org/almadata/lp/DSHARP/>`_.
    Estimate peak SNR of source, given a mask that encompasses the emission
    and another annulus mask to calculate the noise properties.
     
-   Args:
    :param imagename: (str) Image name ending in ``.image``.
    :param disk_mask: (str) must be a ``CASA`` region format.
    :param noise_mask: (str) Annulus to measure image rms, in the ``CASA`` region 
                   format.
                   e.g. ``annulus[['0arcsec', '0arcsec'],['1arcsec', '2arcsec']]``.
+
 
 .. function:: create_dotmodel(simobj, imagename=None)
 
@@ -259,12 +261,12 @@ Additional Imaging functions
    Function to create a ``.model`` image that mimics the ``.out``, with the
    coordinate information of the template.
 
-   Args:
    :param simobj: (simio_object) **SIMIO** object that will be used to generate the
                     synthetic observation.
    :param imagename: (str) Name of the image model to be generated.
-    Returns:
-    (str) with the name of the ``.model`` image generated.
+
+   Returns:
+    - **ms_mod**: (str) with the name of the ``.model`` image generated.
 
 
 Additional Visibility functions
@@ -278,22 +280,21 @@ Additional Visibility functions
    Changes the geometry of an observation, by inclining and rotating the
    uv-points themselfs. This function modifies the input ``ms_file``.
     
-   Args:
-    :param ms_file: (str) Name of the measurement set you want to incline, rotate
+   :param ms_file: (str) Name of the measurement set you want to incline, rotate
                     or shift in physical space.
-    :param inc:  (float) Inclination, in **degrees**. Default: 0.
-    :param pa: (float) Position angle, measured from north to east,
+   :param inc:  (float) Inclination, in **degrees**. Default: 0.
+   :param pa: (float) Position angle, measured from north to east,
                     in **degrees**. Default: 0.
-    :param dRa: (float) Shift in RA to be applied to the visibilities,
+   :param dRa: (float) Shift in RA to be applied to the visibilities,
                     in **arcsec**. Default: 0.
-    :param dDec: (float) Shift in Dec to be applied to the visibilities.
+   :param dDec: (float) Shift in Dec to be applied to the visibilities.
                     in **arcsec**. Default: 0.
-    :param datacolumn1: ``DATA`` or ``MODEL_DATA``, column from where the data must
+   :param datacolumn1: ``DATA`` or ``MODEL_DATA``, column from where the data must
                        be read. Default: ``DATA``.
-    :param datacolumn1: ``DATA`` or ``MODEL_DATA``, column from where the data must
+   :param datacolumn1: ``DATA`` or ``MODEL_DATA``, column from where the data must
                        be written. Default:``DATA``
-    :param inverse (bool): Set ``False`` to deproject, or ``False`` to project.
+   :param inverse (bool): Set ``False`` to deproject, or ``False`` to project.
                         Default: ``False``
     Returns:
-        Returns ``True`` if everything worked correctly. The ``ms_file`` will
-        have been modified.
+       - Returns ``True`` if everything worked correctly. The ``ms_file`` will
+       have been modified to the new visibility geometry.
