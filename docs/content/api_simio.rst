@@ -63,7 +63,7 @@ Main functions
    to ``False``, then the function will only return the string of the ms file
    path, but not generate the ms file itself.
    
-   .. warning:: Use it if you want to calculate the visibilities with ``CASA ft``.
+   .. warning:: Use it if you want to calculate the visibilities with ``CASA ft``. Otherwise, use ``get_mod_ms`` to generate your synthetic observation with the same Fourier Transform from ``galario``, with the same inputs.
    
    :param simobj: (simio_object) **SIMIO** object containing the information of
                    the synthetic observation that will be generated.
@@ -95,11 +95,7 @@ Main functions
                    passed directly to ``simplenoise``.
 
    Returns:
-      - (int) Returns 1 if everything worked correctly. The noiseless
-      measurement set will be copied into a file with the same
-      name but ending in ``_no_noise.ms``, while the ``mod_ms``
-      file will be modified to include the requested 
-      noise.
+      - (int) Returns 1 if everything worked correctly. The noiseless measurement set will be copied into a file with the same name but ending in ``_no_noise.ms``, while the ``mod_ms`` file will be modified to include the requested noise.
 
 
 Imaging functions
@@ -282,7 +278,7 @@ Masking functions
       - **mask_obj**: (str) elliptical mask. This is a ``CASA`` region.
 
 
-.. mask.function:: get_mask(mask_semimajor=None, inc=None, pa=None)
+.. function:: get_mask(mask_semimajor=None, inc=None, pa=None)
 
    Location: ``codes/simio_obj.py``
    
