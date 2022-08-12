@@ -15,27 +15,40 @@ the "simio_object", and therefore you will not interact directly with them.
     blablabla
 
 
-Optional parameter args
-=======================
+Main functions
+==============
 
-At this point optional parameters `cannot be generated from code`_.
-However, some projects will manually do it, like so:
-
-This example comes from `django-payments module docs`_.
-
-.. class:: payments.dotpay.DotpayProvider(seller_id, pin[, channel=0[, lock=False], lang='pl'])
-
-   This backend implements payments using a popular Polish gateway, `Dotpay.pl <http://www.dotpay.pl>`_.
-
-   Due to API limitations there is no support for transferring purchased items.
-
-
-   :param seller_id: Seller ID assigned by Dotpay
-   :param pin: PIN assigned by Dotpay
-   :param channel: Default payment channel (consult reference guide)
-   :param lang: UI language
-   :param lock: Whether to disable channels other than the default selected above
-
-.. _cannot be generated from code: https://groups.google.com/forum/#!topic/sphinx-users/_qfsVT5Vxpw
-.. _django-payments module docs: http://django-payments.readthedocs.org/en/latest/modules.html#payments.authorizenet.AuthorizeNetProvide
-
+.. class:: class simio_object(object_name, out_file_name, template, use_geom, distance, rescale_flux, pxsize_au, add_inc, add_pa, add_dRa, add_dDec)
+   
+   The simio main object
+   The simio_object is the main object of the simio package. It contains the
+   functions and properties needed to generate the synthetic visibilities and
+   images from a simulation.
+   
+   :param object_name: (str) Name of the project.
+   :param out_file_name: (str)Name of the RADMC3D out file, or npy file name.
+   :param template: (str)Template to be used as observation base.
+   :param use_geom: (bool)Set to True if you want to use the geometry of the
+                    template. If you set it to False, then the parameters
+                    "add_inc, add_pa, add_dRa, add_dDec" are activated.
+                    Default: True
+   :param distance: (float)Distance at which your model has to be positioned, 
+                    in parsecs. If set to None, then the distance of the
+                    template will be used.
+                    Default: None
+   :param rescale_flux: (float)Your model image is rescaled by a scalar, so
+                    that the total flux is rescale_flux. The units are mJy. If
+                    set to None, no flux rescaling is applied.
+                    Default: None
+   :param pxsize_au: (float)Pixel size in au. If your input model is a '.npy' 
+                    file, then this parameter is mandatory. It is not used if 
+                    your file format is '.out'.
+                    Default: None
+   :param add_inc: (float)Incline the source by this value, in degrees.
+                    Default: 0.
+   :param add_pa: (float)Rotate the source by this value, in degrees.
+                    Default: 0.
+   :param add_dRa: (float)Shift the source by this value in RA, in arcsec.
+                    Default: 0.
+   :param add_dDec: (float) Shift the source by this value in Dec, in arcsec.
+                     Default: 0.
