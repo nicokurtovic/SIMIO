@@ -181,9 +181,9 @@ Imaging functions
 Masking functions
 =================
 
-.. mask.module:: simio_object
+.. module:: simio_object
 
-.. mask.function:: get_mask(mask_semimajor=None, inc=None, pa=None)
+.. function:: get_mask(mask_semimajor=None, inc=None, pa=None)
 
    Location: ``codes/simio_obj.py``
    
@@ -218,6 +218,8 @@ Masking functions
 
 Additional Imaging functions
 ============================
+
+.. module:: 
 
 .. function:: delete_wrapper(imagename)
 
@@ -292,9 +294,10 @@ Additional Visibility functions
    :param datacolumn1: ``DATA`` or ``MODEL_DATA``, column from where the data must
                        be read. Default: ``DATA``.
    :param datacolumn1: ``DATA`` or ``MODEL_DATA``, column from where the data must
-                       be written. Default:``DATA``
+                       be written. Default:``DATA``.
    :param inverse (bool): Set ``False`` to deproject, or ``False`` to project.
-                        Default: ``False``
-    Returns:
+                        Default: ``False``.
+
+   Returns:
        - Returns ``True`` if everything worked correctly. The ``ms_file`` will
        have been modified to the new visibility geometry.
