@@ -1,5 +1,5 @@
 # SIMIO: from SIMulatIons to Observations
-SIMIO is a collection of codes designed to help you compare your radiative transfer images with existing ALMA observations. Please check www.nicolaskurtovic.com/simio for a full description of the package.
+SIMIO is a collection of codes designed to help you compare your radiative transfer images with existing ALMA observations. Please check the [documentation](https://simio-continuum.readthedocs.io) and www.nicolaskurtovic.com/simio for a full description of the package.
 
 <p align="center">
 <img src="https://github.com/nicokurtovic/SIMIO/blob/main/docs/_static/SIMIO_logo.png" width="256"/>
@@ -17,7 +17,7 @@ How would the Solar System have looked if it was located where the HD163296 syst
 
 Click here to download this example project: [SolarS_HD163296.tar.gz](https://keeper.mpdl.mpg.de/f/03e64c2d3f524c219a99/) (163.6 MB)\
 
-After downloading it, untar it in the projects folder, such that the directories have the following order: /path_to_SIMIO/SIMIO/projects/SolarS_HD163296/ .
+After downloading it, untar it in the projects folder, such that the directories have the following order: /path_to_SIMIO/SIMIO/projects/SolarS_HD163296/ . Follow the [tutorial 1](https://simio-continuum.readthedocs.io) to go step by step from model to synthetic observation.
 
 <p align="center">
 <img src="https://github.com/nicokurtovic/SIMIO/blob/main/docs/_static/SolarS_HD163296_comparison.png" width="1024"/>
