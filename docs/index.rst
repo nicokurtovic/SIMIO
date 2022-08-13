@@ -1,9 +1,10 @@
 SIMIO - SIMulatIons to Observations
 ===============================
 
-*SIMIO* is a collection of codes designed to help you compare your radiative transfer
-images with existing ALMA observations. Please check www.nicokurtovic.com/SIMIO for
-a full description of the package.
+*SIMIO-continuum* is a collection of codes designed to help you compare
+your radiative transfer images with existing ALMA observations. Please 
+check www.nicokurtovic.com/SIMIO and the Contents section for a detailed
+description of the package.
 
 .. toctree::
    :maxdepth: 2
@@ -19,13 +20,8 @@ a full description of the package.
    :caption: Information
    
    content/api_simio
-
-
-Installation
-------------
-
-SIMIO comes in a self-contained folder, and no further installation is needed. To
-use the SIMIO functions you need to execute the CASA software from the SIMIO folder.
+   content/simio_installation
+   content/testsimio_0
 
 
 .. toctree::
