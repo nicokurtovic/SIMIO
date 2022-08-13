@@ -5,7 +5,7 @@ CASA API
 
 Here is the description of all the functions used to generate a synthetic
 observation with **SIMIO-continuum**. These functions must be executed in
-a ``CASA 5.6.2`` terminal interface.
+a `CASA 5.6.2<https://casa.nrao.edu/casa_obtaining.shtml>`_ terminal interface.
 
 .. note::
     Please, check the tutorials to see how to utilize these functions. For
@@ -20,7 +20,7 @@ Main functions
    
    Location: ``codes/simio_obj.py``
    
-   The simio_object is the main object of the simio package. It contains
+   The simio_object is the main object of the **SIMIO** package. It contains
    the functions and properties needed to generate the synthetic
    visibilities and images from a simulation.
    
@@ -28,23 +28,23 @@ Main functions
    :param out_file_name: (str) Name of the ``RADMC3D`` ``.out`` file, or ``.npy``
                     file name.
    :param template: (str) Template to be used as observation base.
-   :param use_geom: (bool) Set to True if you want to use the geometry of the
-                    template. If you set it to False, then the parameters
+   :param use_geom: (bool) Set to ``True`` if you want to use the geometry of the
+                    template. If you set it to ``False`` then the parameters
                     ``add_inc``, ``add_pa``, ``add_dRa``, ``add_dDec`` are
-                    activated. |
-                    Default: ``True``
+                    activated.
+                    Default: ``True``.
    :param distance: (float) Distance at which your model has to be positioned, 
                     in **parsecs**. If set to None, then the distance of the
                     template will be used.
-                    Default: ``None``
+                    Default: ``None``.
    :param rescale_flux: (float) Your model image is rescaled by a scalar, so
                     that the total flux is rescale_flux. The units are **Jy**.
                     If set to None, no flux rescaling is applied.
-                    Default: ``None``
+                    Default: ``None``.
    :param pxsize_au: (float) Pixel size in **au**. If your input model is a ``.npy``
                     file, then this parameter is mandatory. It is not used if 
                     your file format is ``.out``.
-                    Default: ``None``
+                    Default: ``None``.
    :param add_inc: (float) Incline the source by this value, in **degrees**.
                     Default: 0.
    :param add_pa: (float) Rotate the source by this value, in **degrees**.
@@ -59,11 +59,12 @@ Main functions
    
    Location: ``codes/simio_ms2ascii.py``
    
-   Generates the model ms file for the simobj. If ``generate_ms`` is set
-   to ``False``, then the function will only return the string of the ms file
-   path, but not generate the ms file itself.
+   Generates the model measurement set file for the simobj, using the ``ft``
+   function of ``CASA``. If ``generate_ms`` is set to ``False``, then the
+   function will only return the string of the ms file path, but not generate
+   the ms file itself.
    
-   .. warning:: Use it if you want to calculate the visibilities with ``CASA ft``. Otherwise, use ``get_mod_ms`` to generate your synthetic observation with the same Fourier Transform from ``galario``, with the same inputs.
+   .. warning:: Use this function if you want to calculate the visibilities with ``CASA ft``. Otherwise, use ``get_mod_ms`` to generate your synthetic observation with the same Fourier Transform from ``galario``, with the same parameters.
    
    :param simobj: (simio_object) **SIMIO** object containing the information of
                    the synthetic observation that will be generated.
@@ -108,7 +109,7 @@ Imaging functions
    Function wrapper of ``tclean``, ``estimate SNR``, ``JvM correction`` and
    ``delete wrapper``.
    It uses the values from the template and ``simobj`` to fill the 
-   ``tclean_wrapper``.
+   ``tclean_wrapper`` parameters.
    For a more customized clean, see ``custom_clean`` function, or 
    ``tclean_wrapper``.
 
@@ -200,6 +201,7 @@ Additional Imaging functions
    Location: ``codes/simio_clean.py``
 
    Original from `DSHARP <https://almascience.eso.org/almadata/lp/DSHARP/>`_.
+   
    Estimate peak SNR of source, given a mask that encompasses the emission
    and another annulus mask to calculate the noise properties.
     
@@ -214,15 +216,15 @@ Additional Imaging functions
 
    Location: ``codes/simio_clean.py``
 
-   Function to create a ``.model`` image that mimics the ``.out``, with the
-   coordinate information of the template.
+   Function to create a ``.model`` image that mimics the ``.out`` or ``.npy``
+   input, with the coordinate information of the template.
 
    :param simobj: (simio_object) **SIMIO** object that will be used to generate the
                     synthetic observation.
    :param imagename: (str) Name of the image model to be generated.
 
    Returns:
-      - **ms_mod**: (str) with the name of the ``.model`` image generated.
+      - **im_mod**: (str) The name of the ``.model`` image generated.
 
 
 Additional Visibility functions
@@ -253,7 +255,7 @@ Additional Visibility functions
                         Default: ``False``.
 
    Returns:
-      - Returns ``True`` if everything worked correctly. The ``ms_file`` will have been modified to the new visibility geometry.
+      - Returns ``True`` if everything worked correctly. The ``ms_file`` will have been modified with the new visibility geometry.
 
 
 Masking functions
@@ -270,15 +272,18 @@ Masking functions
    be used. The output is a ``CASA`` region.
    See `CASA Regions format <https://casa.nrao.edu/casadocs/casa-5.4.1/image-analysis/region-file-format>`_ for more information
 
-   :param mask_semimajor: (int,float) Semimajor axis of the ellipse in arcsec.
-   :param inc: (int,float) inclination of the ellipse in degrees.
-   :param pa: (int,float) position angle of the ellipse, measured from the
-                  north to the east, or counter-clock wise, in degrees.
+   :param mask_semimajor: (float) Semimajor axis of the ellipse in 
+               arcsec. Default: ``None``.
+   :param inc: (float) inclination of the ellipse in degrees.
+               Default: ``None``.
+   :param pa: (float) position angle of the ellipse, measured from the
+               north to the east, or counter-clock wise, in degrees.
+               Default: ``None``.
    Returns:
       - **mask_obj**: (str) elliptical mask. This is a ``CASA`` region.
 
 
-.. function:: get_mask(mask_semimajor=None, inc=None, pa=None)
+.. function:: get_residual_mask(mask_rin=None, mask_rout=None)
 
    Location: ``codes/simio_obj.py``
    
@@ -287,8 +292,9 @@ Masking functions
    radius should be set such that the mask does not include any real 
    emission.
 
-   :param mask_rin: (int,float) Inner radius of the annulus in arcsec.
-   :param mask_rout: (int,float) Outer radius of the annulus in arcsec.
-
+   :param mask_rin: (float) Inner radius of the annulus in arcsec.
+               Default: ``None``.
+   :param mask_rout: (float) Outer radius of the annulus in arcsec.
+               Default: ``None``.
    Returns:
       - **mask_res**: (str) Annulus mask. This is a ``CASA`` region.
