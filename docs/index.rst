@@ -21,7 +21,7 @@ description of the package.
    
    content/api_simio
    content/simio_installation
-   content/testsimio_0
+   tutorials/testsimio_0
 
 
 .. toctree::
