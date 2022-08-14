@@ -1,5 +1,5 @@
-# SIMIO: from SIMulatIons to Observations
-SIMIO is a collection of codes designed to help you compare your radiative transfer images with existing ALMA observations. Please check the [documentation](https://simio-continuum.readthedocs.io) and www.nicolaskurtovic.com/simio for a full description of the package.
+# SIMIO-continuum: from SIMulatIons to Observations
+SIMIO-continuum is a collection of codes designed to help you compare your radiative transfer images with existing ALMA observations. Please check the [documentation](https://simio-continuum.readthedocs.io) and www.nicolaskurtovic.com/simio for a full description of the package.
 
 <p align="center">
 <img src="https://github.com/nicokurtovic/SIMIO/blob/main/docs/_static/SIMIO_logo.png" width="256"/>
@@ -7,9 +7,9 @@ SIMIO is a collection of codes designed to help you compare your radiative trans
 
 # Get Started
 
-This git-hub repository just contains the codes to run SIMIO, but it does not include the example "Solar System to HD163296" project, and it does not contain the templates either. You can download the templates from www.nicokurtovic.com/simio/templates, and the example project can be downloaded by clicking on the following section.
+This git-hub repository just contains the codes to run SIMIO-continuum, but it does not include the example "Solar System to HD163296" project, and it does not contain the templates either. You can download the templates from www.nicokurtovic.com/simio/templates, and the example project can be downloaded by clicking on the following section.
 
-Alternatively, you can download SIMIO with the HD163296 template preloaded, together with the example of SolarS_HD163296, clicking on this link: [simio_v1.0.tar.gz](https://keeper.mpdl.mpg.de/f/a54b541e15a44944915d/) (387.6 MB)
+Alternatively, you can download SIMIO-continuum with the HD163296 template preloaded, together with the example of SolarS_HD163296, clicking on this link: [simio_v1.0.tar.gz](https://keeper.mpdl.mpg.de/f/a54b541e15a44944915d/) (387.6 MB)
 
 # Example: Solar System to HD163296
 
@@ -26,7 +26,4 @@ After downloading it, untar it in the projects folder, such that the directories
 
 # Terms of use
 
-SIMIO is distributed under the [MIT license](https://opensource.org/licenses/MIT) and can be used, changed
-and redistributed freely. But we do ask you to provide a reference to
-SIMIO when using it. This reference will be posted soon. If no reference has been posted
-by the time of publishing, please refer the usage of the package to the webpage www.nicolaskurtovic.com/simio. 
+SIMIO-continuum is distributed under the [MIT license](https://opensource.org/licenses/MIT) and can be used, changed and redistributed freely. But we do ask you to provide a reference to SIMIO-continuum when using it. This reference will be posted soon. If no reference has been posted by the time of publishing, please refer the usage of the package to the webpage www.nicolaskurtovic.com/simio. 
