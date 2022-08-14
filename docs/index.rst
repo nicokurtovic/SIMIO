@@ -1,10 +1,11 @@
-SIMIO - SIMulatIons to Observations
+SIMIO-continuum - SIMulatIons to Observations
 ===============================
 
 *SIMIO-continuum* is a collection of codes designed to help you compare
 your radiative transfer images with existing ALMA observations. Please 
-check www.nicokurtovic.com/SIMIO and the Contents section for a detailed
-description of the package.
+check www.nicolaskurtovic.com/simio and the Contents section for a detailed
+description of the package. Although SIMIO-continuum is the official name,
+this page uses SIMIO-continuum or SIMIO indistinctively.
 
 .. toctree::
    :maxdepth: 2
