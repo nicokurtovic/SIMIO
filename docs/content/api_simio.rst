@@ -5,7 +5,7 @@ CASA API
 
 Here is the description of all the functions used to generate a synthetic
 observation with **SIMIO-continuum**. These functions must be executed in
-a `CASA 5.6.2<https://casa.nrao.edu/casa_obtaining.shtml>`_ terminal interface.
+a `CASA 5.6.2 <https://casa.nrao.edu/casa_obtaining.shtml>`_ terminal interface.
 
 .. note::
     Please, check the tutorials to see how to utilize these functions. For
