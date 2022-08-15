@@ -27,6 +27,7 @@ indistinctively.
    content/api_simio
    content/simio_installation
    tutorials/testsimio_0
+   content/considerations
 
 
 .. toctree::
