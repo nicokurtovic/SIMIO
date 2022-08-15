@@ -38,4 +38,3 @@ SIMIO-continuum was designed to be easy to use by non-observers while offering t
 The author thanks the support of Paola Pinilla during the development of SIMIO-continuum. The author also acknowledges the support provided by the Alexander von Humboldt Foundation in the framework of the Sofja Kovalevskaja Award endowed by the Federal Ministry of Education and Research.
 
 # References
-
