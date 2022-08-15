@@ -7,7 +7,7 @@ SIMIO-continuum is a collection of codes designed to help you compare your radia
 
 # Get Started
 
-This git-hub repository just contains the codes to run SIMIO-continuum, but it does not include the example "Solar System to HD163296" project, and it does not contain the templates either. You can download the templates from www.nicokurtovic.com/simio/templates, and the example project can be downloaded by clicking on the following section.
+This git-hub repository just contains the codes to run SIMIO-continuum, but it does not include the example "Solar System to HD163296" project, and it does not contain the templates either. You can download the templates from www.nicolaskurtovic.com/simio/templates, and the example project can be downloaded by clicking on the following section.
 
 Alternatively, you can download SIMIO-continuum with the HD163296 template preloaded, together with the example of SolarS_HD163296, clicking on this link: [simio_v1.0.tar.gz](https://keeper.mpdl.mpg.de/f/a54b541e15a44944915d/) (387.6 MB)
 
