@@ -37,6 +37,8 @@ execfile(current_dir+'codes/simio_clean.py')
 
 def ms_to_ascii(ms_cont, ascii_file, with_flags):
     '''
+    Adapted from Laura Perez
+    
     Takes ms_cont, and writes the visibilities in a file named ``ascii_file``.
     The visibility table will have the structure of (u, v, Real, Imag, weights).
     If you do not want to include flagged data in your visibility table, then
@@ -139,6 +141,8 @@ def ms_to_ascii(ms_cont, ascii_file, with_flags):
 
 def ascii_to_ms(ascii_file, ms_file, new_ms_file):
     '''
+    Adapted from Laura Perez
+    
     Inverse function of ms_to_ascii. It takes a visibility table in a ``.txt``
     or ``.dat`` format, and replaces those visibilities in a ms_file. The
     ``ms_file`` must match exactly the visibility table in number of spw and
@@ -554,5 +558,3 @@ def change_geom(ms_file, inc=0., pa=0., dRa=0., dDec=0., \
     tb.close()
     # Return
     return True
-
-
