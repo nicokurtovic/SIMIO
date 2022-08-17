@@ -12,7 +12,7 @@ authors:
     orcid: 0000-0002-2358-4796
     affiliation: "1" #
 affiliations:
- - name: Max-Planck-Institut f\"{u}r Astronomie, K\"{o}nigstuhl 17, 69117, Heidelberg, Germany.
+ - name: Max-Planck-Institut für Astronomie, Königstuhl 17, 69117, Heidelberg, Germany.
    index: 1
 date: 15 August 2022
 bibliography: paper.bib
