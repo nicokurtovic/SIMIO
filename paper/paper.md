@@ -31,7 +31,9 @@ SIMIO-continuum is a python-based package for \texttt{CASA} [Common Astronomy So
 
 Instead of creating a new observational setup as \texttt{simobserve}, SIMIO-continuum uses an existing observation as a template for the synthetic observation. The package takes an input image (containing a millimeter continuum brightness distribution), calculates its visibilities, and then replaces this data in the template observation. In this way, the synthetic observation mimics all the technical details of the template (such as the number of antennas, exposure time, frequency coverage, sky orientation, time of observation, and angular resolution). Once the synthetic observation is created, the synthetic reconstructed images are obtained in the same way as real observations.
 
-SIMIO-continuum was designed to be easy to use by non-experts on interferometric observations while offering a full range of data products for people with different observational backgrounds. Based on a template observation, astronomers can obtain not only the synthetic observations and images of their models, as SIMIO-continuum allows changing the model's geometry, including white noise in the reconstructed images, and changing the model distance to the observer. These features enable multiple feature-recovery tests with a visibility-based approach.
+SIMIO-continuum was designed to be easy to use by non-experts on interferometric observations while offering a full range of data products for people with different observational backgrounds. Based on a template observation, astronomers can obtain not only the synthetic observations and images of their models, as SIMIO-continuum allows changing the model's geometry[^1], including white noise in the reconstructed images, and changing the model distance to the observer. These features enable multiple feature-recovery tests with a visibility-based approach.
+
+[^1]: Changing the model geometry conserves the flux, therefore changes of inclination does not account for physical processes such as different absorption or scattering of photons.
 
 # Acknowledgements
 
