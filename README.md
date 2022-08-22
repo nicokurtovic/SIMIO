@@ -11,7 +11,8 @@ This git-hub repository just contains the codes to run SIMIO-continuum, but it d
 
 You can also download the latest SIMIO-continuum in a ``tar.gz`` by clicking on this link: [simio_v1.1.tar.gz](https://keeper.mpdl.mpg.de/f/c4e78105955343518342/) (13.4 MB).
 
-Alternatively, you can download the latest SIMIO-continuum in a ``tar.gz`` pre-loaded with the project and template needed to complete the [tutorial 1](https://simio-continuum.readthedocs.io) of the [documentation](https://simio-continuum.readthedocs.io). Click on this link to download it: [simio_preloaded_v1.1.tar.gz](https://keeper.mpdl.mpg.de/f/3a76f448da7e49b4b4f1/)
+Alternatively, you can download the latest SIMIO-continuum in a ``tar.gz`` pre-loaded with the project and template needed to complete the [tutorial 1](https://simio-continuum.readthedocs.io) of the [documentation](https://simio-continuum.readthedocs.io). Click on this link to download it: [simio_preloaded_v1.1.tar.gz](https://keeper.mpdl.mpg.de/f/3a76f448da7e49b4b4f1/) (387.6 MB).
+
 
 
 # Example: Solar System to HD163296
