@@ -6,7 +6,10 @@ SIMIO-continuum is a collection of codes designed to help you compare your radia
 <img src="https://github.com/nicokurtovic/SIMIO/blob/main/docs/_static/SIMIO_logo.png" width="256"/>
 <br/>
 <br/>
-<a href="https://joss.theoj.org/papers/99967c47b9d7e13c7066fffa61e88575"><img src="https://joss.theoj.org/papers/99967c47b9d7e13c7066fffa61e88575/status.svg"></a>
+<a href="https://joss.theoj.org/papers/99967c47b9d7e13c7066fffa61e88575"><img src="https://joss.theoj.org/papers/99967c47b9d7e13c7066fffa61e88575/status.svg">
+</a>
+<a href='https://simio-continuum.readthedocs.io/en/main/?badge=main'><img src='https://readthedocs.org/projects/eddy/badge/?version=main' alt='Documentation Status' />
+</a>
 <br/>
 </p>
 
