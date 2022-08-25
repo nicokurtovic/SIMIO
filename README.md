@@ -3,6 +3,7 @@ SIMIO-continuum is a collection of codes designed to help you compare your radia
 
 <p align="center">
 <img src="https://github.com/nicokurtovic/SIMIO/blob/main/docs/_static/SIMIO_logo.png" width="256"/>
+<a href="https://joss.theoj.org/papers/99967c47b9d7e13c7066fffa61e88575"><img src="https://joss.theoj.org/papers/99967c47b9d7e13c7066fffa61e88575/status.svg"></a>
 </p>
 
 # Get Started
