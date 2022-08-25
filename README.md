@@ -2,8 +2,12 @@
 SIMIO-continuum is a collection of codes designed to help you compare your radiative transfer images with existing ALMA observations. Please check the [documentation](https://simio-continuum.readthedocs.io) and www.nicolaskurtovic.com/simio for a full description of the package.
 
 <p align="center">
+<br/>
 <img src="https://github.com/nicokurtovic/SIMIO/blob/main/docs/_static/SIMIO_logo.png" width="256"/>
+<br/>
+<br/>
 <a href="https://joss.theoj.org/papers/99967c47b9d7e13c7066fffa61e88575"><img src="https://joss.theoj.org/papers/99967c47b9d7e13c7066fffa61e88575/status.svg"></a>
+<br/>
 </p>
 
 # Get Started
