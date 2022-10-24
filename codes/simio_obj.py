@@ -64,7 +64,7 @@ class simio_image():
             self.imsize = np.shape(self.model_im)[0]
         elif not self._is_out_file:
             # Read image from out
-            simulated_im = np.read(self.im_file_name)
+            simulated_im = np.load(self.im_file_name)
             self.model_im = np.squeeze(simulated_im)
             if pxsize_au is None:
                 print (' ')
