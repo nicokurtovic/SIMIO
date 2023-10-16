@@ -8,3 +8,6 @@ sphinx-intl
 sphinx-rtd-theme
 pydata-sphinx-theme
 pygments>=2.4.1
+myst_parser
+sphinxext-rediraffe
+sphinx-panels
