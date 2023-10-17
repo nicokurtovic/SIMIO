@@ -26,8 +26,6 @@ release = '1.2'
 
 # -- General configuration ---------------------------------------------------
 
-mathjax_path = 'https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'
-
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
@@ -42,6 +40,9 @@ extensions = [
     'sphinx_rtd_theme',
     'nbsphinx', 
 ]
+
+# Mathjax path
+mathjax_path = 'https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'
 
 # astropy
 autodoc_mock_imports = ['astropy']
