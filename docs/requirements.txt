@@ -13,3 +13,4 @@ myst_parser
 sphinxext-rediraffe
 sphinx-panels
 sphinx-autobuild
+sphinx-math-dollar
