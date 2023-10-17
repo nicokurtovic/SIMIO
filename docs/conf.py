@@ -42,6 +42,20 @@ extensions = [
     'nbsphinx',
 ]
 
+mathjax_config = {
+    'tex2jax': {
+        'inlineMath': [ ["\\(","\\)"] ],
+        'displayMath': [["\\[","\\]"] ],
+    },
+}
+
+mathjax3_config = {
+  "tex": {
+    "inlineMath": [['\\(', '\\)']],
+    "displayMath": [["\\[", "\\]"]],
+  }
+}
+
 # Is this really necessary...
 autodoc_mock_imports = ['astropy']
 
