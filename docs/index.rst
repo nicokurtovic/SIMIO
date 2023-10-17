@@ -52,6 +52,6 @@ message to my email address.
 License
 -------
 
-TESTING. The project is licensed under the `MIT license`_.
+The project is licensed under the `MIT license`_.
 
 .. _MIT license: https://github.com/nicokurtovic/SIMIO/blob/main/LICENSE
