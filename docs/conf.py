@@ -22,7 +22,7 @@ copyright = '2022, Nicolas Kurtovic'
 author = 'Nicolas Kurtovic'
 
 # The full version, including alpha/beta/rc tags
-release = '1.0'
+release = '1.2'
 
 # -- General configuration ---------------------------------------------------
 
@@ -38,25 +38,10 @@ extensions = [
     'sphinx.ext.mathjax',
     'sphinx.ext.ifconfig',
     'sphinx_rtd_theme',
-    'sphinx_math_dollar',
-    'nbsphinx',
+    'nbsphinx', 
 ]
 
-mathjax_config = {
-    'tex2jax': {
-        'inlineMath': [ ["\\(","\\)"] ],
-        'displayMath': [["\\[","\\]"] ],
-    },
-}
-
-mathjax3_config = {
-  "tex": {
-    "inlineMath": [['\\(', '\\)']],
-    "displayMath": [["\\[", "\\]"]],
-  }
-}
-
-# Is this really necessary...
+# astropy
 autodoc_mock_imports = ['astropy']
 
 # Add any paths that contain templates here, relative to this directory.
@@ -66,7 +51,7 @@ master_doc = 'index'
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
+#exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
 # Make sure the functions are in the order in the .py file.
 add_function_parentheses = True
