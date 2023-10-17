@@ -3,6 +3,7 @@ pandoc>=2.1
 jupyter
 ipython
 ipykernel
+libjs-mathjax
 nbsphinx
 docutils<0.18
 sphinx-intl
