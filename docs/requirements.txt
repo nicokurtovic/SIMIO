@@ -2,6 +2,7 @@ sphinx>=3.1
 pandoc>=2.1
 jupyter
 ipython
+ipykernel
 nbsphinx
 docutils<0.18
 sphinx-intl
