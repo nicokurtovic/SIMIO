@@ -41,7 +41,7 @@ extensions = [
     'sphinx.ext.napoleon',
     'sphinx.ext.imgmath',
     'sphinx.ext.todo',
-    'sphinx.ext.mathjax',
+    #'sphinx.ext.mathjax',
     'sphinx.ext.ifconfig',
     'sphinx.ext.viewcode',
     'sphinx_rtd_theme',
