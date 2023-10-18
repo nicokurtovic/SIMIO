@@ -50,6 +50,7 @@ extensions = [
 
 html_theme = 'sphinx_rtd_theme' 
 imgmath_latex = "pdflatex"
+imgmath_image_format = 'png'
 
 # Mathjax path
 #mathjax_path = 'https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'
