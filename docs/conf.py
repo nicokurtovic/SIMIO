@@ -44,9 +44,12 @@ extensions = [
     'sphinx.ext.mathjax',
     'sphinx.ext.ifconfig',
     'sphinx.ext.viewcode',
-    'sphinx_rtd_theme',
+    #'sphinx_rtd_theme',
     'nbsphinx', 
 ]
+
+html_theme = 'sphinx_rtd_theme' 
+imgmath_latex = "pdflatex"
 
 # Mathjax path
 #mathjax_path = 'https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'
