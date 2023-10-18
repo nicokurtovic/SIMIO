@@ -49,7 +49,6 @@ This is a test. Here is an equation:
 Here is another:
 
 .. math::
-r"""
     :label: This is a label
 
     \nabla^2 f =
@@ -58,7 +57,6 @@ r"""
     \frac{1}{r^2 \sin \theta} \frac{\partial f}{\partial \theta}
     \left( \sin \theta \, \frac{\partial f}{\partial \theta} \right) +
     \frac{1}{r^2 \sin^2\theta} \frac{\partial^2 f}{\partial \phi^2}
-"""
 
 You can add a link to equations like the one above :eq:`This is a label` by using ``:eq:``.
 
