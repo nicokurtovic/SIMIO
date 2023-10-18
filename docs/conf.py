@@ -48,7 +48,7 @@ extensions = [
     'nbsphinx', 
 ]
 
-html_theme = 'sphinx_rtd_theme'
+#html_theme = 'sphinx_rtd_theme'
 latex_engine = 'pdflatex'
 imgmath_latex = "pdflatex"
 imgmath_image_format = 'png'
