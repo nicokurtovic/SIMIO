@@ -15,11 +15,11 @@ import os
 sys.path.insert(0, os.path.abspath('.'))
 # autodoc_member_order = 'bysource'  # uncomment to not have alphabetical list.
 
-sys.path.append(os.path.abspath('./content/'))
-sys.path.append(os.path.abspath('../../../../../'))
-sys.path.append(os.path.abspath('../../../../'))
-sys.path.append(os.path.abspath('../../../'))
-sys.path.append(os.path.abspath('../../'))
+#sys.path.append(os.path.abspath('./content/'))
+#sys.path.append(os.path.abspath('../../../../../'))
+#sys.path.append(os.path.abspath('../../../../'))
+#sys.path.append(os.path.abspath('../../../'))
+#sys.path.append(os.path.abspath('../../'))
 
 # -- Project information -----------------------------------------------------
 
