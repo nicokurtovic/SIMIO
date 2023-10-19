@@ -15,11 +15,11 @@ import os
 sys.path.insert(0, os.path.abspath('.'))
 # autodoc_member_order = 'bysource'  # uncomment to not have alphabetical list.
 
-#sys.path.append(os.path.abspath('./content/'))
-#sys.path.append(os.path.abspath('../../../../../'))
-#sys.path.append(os.path.abspath('../../../../'))
-#sys.path.append(os.path.abspath('../../../'))
-#sys.path.append(os.path.abspath('../../'))
+sys.path.append(os.path.abspath('./content/'))
+sys.path.append(os.path.abspath('../../../../../'))
+sys.path.append(os.path.abspath('../../../../'))
+sys.path.append(os.path.abspath('../../../'))
+sys.path.append(os.path.abspath('../../'))
 
 # -- Project information -----------------------------------------------------
 
@@ -49,9 +49,9 @@ extensions = [
 ]
 
 #html_theme = 'sphinx_rtd_theme'
-latex_engine = 'pdflatex'
-imgmath_latex = "pdflatex"
-imgmath_image_format = 'png'
+#latex_engine = 'pdflatex'
+#imgmath_latex = "pdflatex"
+#imgmath_image_format = 'png'
 
 # Mathjax path
 mathjax_path = 'https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'
