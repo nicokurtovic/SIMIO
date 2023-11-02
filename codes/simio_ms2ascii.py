@@ -37,8 +37,6 @@ execfile(current_dir+'codes/simio_clean.py')
 
 def ms_to_ascii(ms_cont, ascii_file, with_flags):
     '''
-    Adapted from Laura Perez
-    
     Takes ms_cont, and writes the visibilities in a file named ``ascii_file``.
     The visibility table will have the structure of (u, v, Real, Imag, weights).
     If you do not want to include flagged data in your visibility table, then
@@ -141,8 +139,6 @@ def ms_to_ascii(ms_cont, ascii_file, with_flags):
 
 def ascii_to_ms(ascii_file, ms_file, new_ms_file):
     '''
-    Adapted from Laura Perez
-    
     Inverse function of ms_to_ascii. It takes a visibility table in a ``.txt``
     or ``.dat`` format, and replaces those visibilities in a ms_file. The
     ``ms_file`` must match exactly the visibility table in number of spw and
@@ -199,164 +195,6 @@ def ascii_to_ms(ascii_file, ms_file, new_ms_file):
     tb.close()
     # Print
     print ('New ms file is: ' + new_ms_file)
-
-
-def _write_temp_uvtables(simobj):
-    '''
-    Write the template uvtable. This is wrapper to write the uvtable of the
-    ``simio_object`` template, to be used when executing *SIMIO* with
-    ``galario``.
-    
-    Args:
-        - simobj: (simio_object) *SIMIO* object containing the synthetic
-                    observation that will be extracted.
-    Returns:
-        Writes the visibility table of each spectral window.
-    '''
-    # Remove previous existent uvtables
-    os.system('rm ' + simobj._source_dir + 'msfiles/'  + simobj._prefix + '_cont_spw*.txt')
-    os.system('rm ' + simobj._source_dir + 'uvtables/' + simobj._prefix + '_cont_spw*.txt')
-    # Write individual uvtables for each spw
-    for i in simobj._spw_temp:
-        # Names
-        ms_file    = simobj._source_dir + 'msfiles/'  + simobj._prefix + '_cont_spw' + str(i) + '.ms'
-        ascii_file = simobj._source_dir + 'uvtables/' + simobj._prefix + '_cont_spw' + str(i) + '.txt'
-        # Delete any previous spw file
-        os.system('rm -rf ' + ms_file)
-        os.system('rm -rf ' + ascii_file)
-        # Split
-        split(vis=simobj._ms_temp, outputvis=ms_file, \
-              keepflags=False, datacolumn='data', spw=i)
-        ms_to_ascii(ms_file, ascii_file, with_flags=True)
-        # Delete temporal msfile
-        os.system('rm -rf ' + ms_file)
-    # Check weight
-    os.system('du -h ' + simobj._source_dir + 'uvtables')
-
-
-def _write_mod_uvtables(simobj):
-    '''
-    Writes the uvtables of the model in ``simio_object``. This function is
-    written to work with the ``galario`` mode of ``simio_object``.
-    
-    Args:
-        - simobj: (simio_object) *SIMIO* object containing the synthetic
-                    observation that will be written.
-    Returns:
-        Writes the visibility table of each spectral window, with the
-        visibilities from the model.
-    '''
-    # Iterate over all spws
-    for i in simobj._spw_temp.astype(str):
-        print (i)
-        # Read uvtable from individual spw
-        ascii_file = simobj._source_dir + 'uvtables/' + simobj._prefix + '_cont_spw'+str(i)+'.txt'
-        uu, vv, RReal, IImag, WWei = np.loadtxt(ascii_file, unpack=True)
-        # C-contiguous
-        uu = np.ascontiguousarray(uu)
-        vv = np.ascontiguousarray(vv)
-        RReal = np.ascontiguousarray(RReal)
-        IImag = np.ascontiguousarray(IImag)
-        WWei = np.ascontiguousarray(WWei)
-        # Get model visibilities            
-        model_vis = uvmodel_from_image(model_image = simobj.sim_im.scaled_model_im, \
-                                       u=uu, v=vv, \
-                                       real_part=RReal, imag_part=IImag, \
-                                       params = simobj._geom_params, \
-                                       px = simobj.sim_im.pxsize_arcsec)
-        # Save model and residuals
-        model_file = simobj._source_dir + 'uvtables/' + simobj._prefix + '_model_spw' + str(i) + '.txt'
-        # Write model
-        np.savetxt(model_file, np.array([uu, vv, \
-                                         model_vis.real, \
-                                         model_vis.imag, \
-                                         WWei]).T)
-
-
-def _write_mod_ms(simobj):
-    '''
-    After writing the uvtables of the model using the ``_write_mod_uvtables``
-    function, this function takes them and converts them in msfiles, to generate
-    the msfile of the simio_object model. This function is used then *SIMIO* is
-    calculating the fourier transform with galario.
-    '''
-    # List for storing the names of auxiliary ms files
-    list_model = []
-    # Generate ms files from ascii tables
-    for i in simobj._spw_temp:
-        # Names
-        ms_file     = simobj._source_dir + 'msfiles/'  + simobj._prefix + '_cont_spw'  + str(i) + '.ms'
-        ms_file_new = simobj._source_dir + 'msfiles/'  + simobj._prefix + '_model_spw' + str(i) + '.ms'
-        ascii_file  = simobj._source_dir + 'uvtables/' + simobj._prefix + '_model_spw' + str(i) + '.txt'
-        list_model.append(ms_file_new)
-        os.system('rm -rf '+ms_file)
-        os.system('rm -rf '+ms_file_new)
-        # Split
-        split(vis=simobj._ms_temp, outputvis=ms_file, \
-              keepflags=False, datacolumn='data', spw=i)
-        ascii_to_ms(ascii_file, ms_file, ms_file_new)
-        os.system('rm -rf '+ms_file)
-        os.system('rm -rf '+ascii_file)
-    # Rejoin best uvmodel
-    ms_model = simobj._prefix + '_model'
-    os.system('rm -rf '+ simobj._source_dir + 'msfiles/' + ms_model + '.ms')
-    concat(vis = list_model, \
-           concatvis=simobj._source_dir + 'msfiles/' + ms_model + '.ms', \
-           dirtol = '0.1arcsec', copypointing = False)
-    # Remove indermediate files
-    for i in list_model:
-        os.system('rm -rf ' + i)
-
-
-def get_mod_ms(simobj, generate_ms=True):
-    '''    
-    Generates the model measurement set file for the ``simobj``. If the
-    parameter ``generate_ms`` is set to ``False``, then the function will only
-    return the string of the ms file path, but not generate the ms file itself.
-
-    ..warning:: Use it if you want to calculate the visibilities with galario.
-
-    Args:
-        - simobj: (simio_object) **SIMIO** object containing the information of
-                    the synthetic observation that will be generated.
-        - generate_ms: (bool) Set to ``True`` if the measurement set is to be 
-                    generated. Set to ``False`` if only the string with the name
-                    of the measurement set is needed.
-                    Default: ``True``.
-    Returns:
-        - mod_ms: Name of the measurement set with the synthetic observation.
-    '''
-    # Check if ms has to be generated
-    simobj.mod_ms = simobj._source_dir + 'msfiles/' + simobj._prefix + '_model.ms'
-    if not generate_ms:
-        return simobj.mod_ms
-    # If ms has to be generated:
-    # Write template uvtables
-    print (' ')
-    print ('Getting visibilities from template')
-    print (' ')
-    _write_temp_uvtables(simobj)
-    # Write source uvtables
-    print (' ')
-    print ('Writing uv-model for: ', simobj._prefix, ' based on ', simobj.template)
-    print (' ')
-    _write_mod_uvtables(simobj)
-    # From source uvtables, write and concatenate the ms files
-    print (' ')
-    print ('Writing the ms file of the model')
-    print (' ')
-    _write_mod_ms(simobj)
-    # Create a single uvtable for the model
-    aux_str1 = simobj._source_dir + 'uvtables/' + simobj._prefix + '_model_spw*.txt'
-    aux_str2 = simobj._source_dir + 'uvtables/' + simobj._prefix + '_uvtable.txt'
-    os.system('rm ' + simobj._source_dir + 'uvtables/' + simobj._prefix + '_uvtable.txt')
-    os.system('ls -1tr ' + aux_str1 + ' | xargs cat >> ' + aux_str2)
-    # Remove individual spw files
-    os.system('rm ' + simobj._source_dir + 'uvtables/' + simobj._prefix + '_model_spw*.txt')
-    os.system('rm ' + simobj._source_dir + 'uvtables/' + simobj._prefix + '_cont_spw*.txt')
-    # Return message
-    print (simobj._prefix + 'ms file and uvtable are written')
-    return simobj.mod_ms
 
 
 def get_mod_ms_ft(simobj, generate_ms=True):
@@ -532,7 +370,7 @@ def change_geom(ms_file, inc=0., pa=0., dRa=0., dDec=0., \
 #        data_wspec =data_wspec[np.logical_not(data_flags)]
 
     # Deproject data
-    dep_u, dep_v, dep_re, dep_im = deproject_uv(data_uu, data_vv, data_real, data_imag, inc, pa, dRa, dDec, inverse=inverse)
+    dep_u, dep_v, dep_re, dep_im = handle_uv(data_uu, data_vv, data_real, data_imag, inc, pa, dRa, dDec, inverse=inverse)
     # Return u and v to input units
     dep_u = dep_u / freqs * qa.constants('c')['value']
     dep_v = dep_v / freqs * qa.constants('c')['value']
@@ -558,3 +396,5 @@ def change_geom(ms_file, inc=0., pa=0., dRa=0., dDec=0., \
     tb.close()
     # Return
     return True
+
+
