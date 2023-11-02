@@ -18,9 +18,10 @@ import numpy as np
 # Directories
 current_dir = os.getcwd()+'/'
 # Check if working at simio or template
-if current_dir[-6:] != 'simio/':
+if current_dir[-6:] != 'SIMIO/':
     # Modify to get correct simio location
-    current_dir += '../../'
+    print ('Check you are running in the main SIMIO folder')
+#    current_dir += '../../'
 # Read the codes directory
 sys.path.append(current_dir+'codes/')
 
