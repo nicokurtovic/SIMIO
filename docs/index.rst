@@ -19,7 +19,6 @@ indistinctively.
    content/content_1
    content/content_2
    content/content_3
-   content/content_9
 
 .. toctree::
    :maxdepth: 2
