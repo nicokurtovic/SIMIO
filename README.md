@@ -27,8 +27,8 @@ Alternatively, you can download the latest SIMIO-continuum in a ``tar.gz`` pre-l
 
 How would the Solar System have looked if it was located where the HD163296 system is, and it had been observed by ALMA as part of the DSHARP project?
 
-Click here to download this example project: [SolarS_HD163296.tar.gz](https://keeper.mpdl.mpg.de/f/23c92e46e69c40e185f1/) (163.6 MB). After downloading it, untar it in the projects folder, such that the directories have the following order: /path_to_SIMIO/SIMIO/projects/SolarS_HD163296. 
-The template for this project is the DSHARP observation of HD163296, which you can download from this [link](https://www.nicolaskurtovic.com/simio/templates). After downloading it, untar it in the templates folder, such that the directories have the following order: /path_to_SIMIO/SIMIO/templates/HD163296. 
+Click here to download this example project: [SolarS_HD163296.tar.gz](https://keeper.mpdl.mpg.de/f/23c92e46e69c40e185f1/) (163.6 MB). After downloading it, untar it in the **projects** folder, such that the directories have the following order: /path_to_SIMIO/SIMIO/projects/SolarS_HD163296. 
+The template for this project is the DSHARP observation of HD163296, which you can download from this [link](https://www.nicolaskurtovic.com/simio/templates). After downloading it, untar it in the **templates** folder, such that the directories have the following order: /path_to_SIMIO/SIMIO/templates/HD163296. 
 
 Follow the [tutorial 1](https://simio-continuum.readthedocs.io) to go step by step from model to synthetic observation.
 
