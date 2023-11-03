@@ -29,6 +29,7 @@ indistinctively.
    tutorials/testsimio_0
    content/considerations
    content/literature_simio
+   content/community_guidelines
 
 
 .. toctree::
