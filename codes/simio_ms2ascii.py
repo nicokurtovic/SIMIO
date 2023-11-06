@@ -20,15 +20,17 @@ current_dir = os.getcwd()+'/'
 # Check if working at simio or template
 if current_dir[-6:] != 'SIMIO/':
     # Modify to get correct simio location
-    print ('Check you are running in the main SIMIO folder')
+    print ('WARNING: Make sure you are running in the main SIMIO folder')
 #    current_dir += '../../'
 # Read the codes directory
 sys.path.append(current_dir+'codes/')
 
 # Append ms to ascii functions
-execfile(current_dir+'codes/simio_support.py')
+#execfile(current_dir+'codes/simio_support.py')
+exec(open(current_dir+'codes/simio_support.py').read(), globals())
 # Append cleaning functions
-execfile(current_dir+'codes/simio_clean.py')
+#execfile(current_dir+'codes/simio_clean.py')
+exec(open(current_dir+'codes/simio_clean.py').read(), globals())
 
 
 ################################################################################
@@ -229,7 +231,7 @@ def get_mod_ms_ft(simobj, generate_ms=True):
     # List for storing the names of auxiliary ms files
     list_model = []
     # Generate ms files from ascii tables
-    for i in simobj._spw_temp:
+    for i in simobj._spw_temp.astype(str):
         # Names
         ms_file     = simobj._source_dir + 'msfiles/'  + simobj._prefix + '_cont_spw'  + str(i) + '.ms'
         ms_file_new = simobj._source_dir + 'msfiles/'  + simobj._prefix + '_model_spw' + str(i) + '.ms'
