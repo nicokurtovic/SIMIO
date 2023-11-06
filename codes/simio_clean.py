@@ -47,8 +47,6 @@ def tclean_wrapper(vis, imagename, scales, smallscalebias=0.6, mask ='', \
                    cycleniter=300, cyclefactor=1., uvtaper=[], phasecenter=0, \
                    startmodel='', savemodel='none', uvrange='', field='', nterms=1):
     '''
-    Modified from reduction_utils.py from DSHARP.
-    
     Wrapper for tclean with keywords set to values desired for the DSHARP Large 
     Program imaging. Modified to work within SIMIO with a greater free
     parameter freedom.
@@ -71,6 +69,7 @@ def tclean_wrapper(vis, imagename, scales, smallscalebias=0.6, mask ='', \
         phasecenter = au.rad2radec(ra,dec, prec=7, verbose=False)
         phasecenter = phasecenter.replace(':','h',1).replace(':','m',1).replace(':','d',1).replace(':','m',1) + 's'
         phasecenter = phasecenter.replace(',', 's')
+        #phasecenter = 'J2000 '+phasecenter
 
     print (' ')
     print ('Removing previous imaging files, and starting first tclean.')
@@ -517,7 +516,7 @@ def JvM_correction(root):
     residual_file = root + '.residual'
     npix_window = 301
     # Open psf and read off the metadata
-    ia = casac.image()
+#    ia = casac.image()
     ia.open(psf_file)
     psf_data_raw = ia.getregion()
     hdr = ia.summary(list=False)
@@ -577,3 +576,5 @@ def JvM_correction(root):
     # clean up
     shutil.rmtree(convolved_temp_image)
     return epsilon
+
+
