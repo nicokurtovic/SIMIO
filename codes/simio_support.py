@@ -14,8 +14,8 @@ Contact: kurtovic at mpia.de
 import sys
 import os
 import numpy as np
-from scipy.interpolate import interp1d, RectBivariateSpline
-from scipy.integrate import trapz, quadrature
+#from scipy.interpolate import interp1d, RectBivariateSpline
+#from scipy.integrate import trapz, quadrature
 
 
 ##############################################################################
