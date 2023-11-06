@@ -31,8 +31,8 @@ print (" SIMIO assumes you already did 'import analysisUtils as au'")
 print (' ')
 
 # Append ms to ascii functions
-execfile(current_dir+'codes/read_out.py')
-
+#execfile(current_dir+'codes/read_out.py')
+exec(open(current_dir+'codes/read_out.py').read(), globals())
 
 ################################################################################
 #                                SIMIO IMAGE CLASS                             #
@@ -64,7 +64,7 @@ class simio_image():
             self.imsize = np.shape(self.model_im)[0]
         elif not self._is_out_file:
             # Read image from out
-            simulated_im = np.load(self.im_file_name)
+            simulated_im = np.read(self.im_file_name)
             self.model_im = np.squeeze(simulated_im)
             if pxsize_au is None:
                 print (' ')
@@ -162,9 +162,13 @@ class simio_object():
         self._info_temp = self._temp_dir + template + '_info.py'
 
         # Geometry of the observation
-        with open(self._info_temp) as f:
-            for line in f:
-                exec (line)
+        exec(open(self._info_temp).read(), globals())
+        # Get distance of template
+        dist = 1e3 / parallax
+#        with open(self._info_temp) as f:
+#            for line in f:
+#                print (line)
+#                exec (line, globals())
         self._use_tempgeom = use_tempgeom
 
         # Set distance
