@@ -5,7 +5,7 @@ CASA API
 
 Here is the description of all the functions used to generate a synthetic
 observation with **SIMIO-continuum**. These functions must be executed in
-a `CASA 5.6.2 <https://casa.nrao.edu/casa_obtaining.shtml>`_ terminal interface.
+a `CASA 5.6.2<https://casa.nrao.edu/casa_obtaining.shtml>`_ terminal interface.
 
 .. note::
     Please, check the tutorials to see how to utilize these functions. For
@@ -55,28 +55,6 @@ Main functions
                     Default: 0.
 
 
-.. function:: get_mod_ms_ft(simobj, generate_ms=True)
-   
-   Location: ``codes/simio_ms2ascii.py``
-   
-   Generates the model measurement set file for the simobj, using the ``ft``
-   function of ``CASA``. If ``generate_ms`` is set to ``False``, then the
-   function will only return the string of the ms file path, but not generate
-   the ms file itself.
-   
-   .. warning:: Use this function if you want to calculate the visibilities with ``CASA ft``. Otherwise, use ``get_mod_ms`` to generate your synthetic observation with the same Fourier Transform from ``galario``, with the same parameters.
-   
-   :param simobj: (simio_object) **SIMIO** object containing the information of
-                   the synthetic observation that will be generated.
-   :param generate_ms: (bool) Set to ``True`` if the measurement set is to be 
-                   generated. Set to ``False`` if only the string with the name
-                   of the measurement set is needed.
-                   Default: ``True``.
-
-   Returns:
-       - **mod_ms**: Name of the measurement set with the synthetic observation.
-
-
 .. function:: add_noise(mod_ms, level='10.2mJy')
 
    Location: ``codes/simio_clean.py``
@@ -114,7 +92,7 @@ Imaging functions
    ``tclean_wrapper``.
 
    :param simobj: (simio_object) A simio object that already went through
-                  the ``get_mod_ms`` function.
+                  the ``get_mod_ms_ft`` function.
    :param interactive: (boolean) Interactive clean. Recommended to set ``True``.
                   Default: ``False``.
    :param remove_end: (Boolean) If ``True``, will remove the folder files after
@@ -139,7 +117,7 @@ Imaging functions
    `tclean documentation <https://casa.nrao.edu/docs/taskref/tclean-task.html>`_
 
    :param simobj: (simio_object) A simio object that already went through
-                    the ``get_mod_ms`` function.
+                    the ``get_mod_ms_ft`` function.
    :param imsize: (int) Image size in pixels.
    :param cellsize: (float) Pixel size, must be input in arcsec.
    :param mask: (str) Mask for cleaning the emission, must be a ``CASA`` region
