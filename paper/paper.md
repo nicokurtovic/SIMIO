@@ -29,7 +29,7 @@ The documentation and tutorials give a detailed description of the code function
 
 Interferometric facilities, such as ALMA, allow us to reach angular resolutions inaccessible by single-dish telescopes. A crucial step in understanding interferometric datasets is generating synthetic observations to compare or predict how physical processes or intensity distributions would be observed. 
 
-Predicting tools from the Common Astronomy Software Applications package (\texttt{CASA}, [@McMullin:2007, @Emonts:2020]) are very well suited for generating synthetic observations with specific observational setups (Antenna Array configuration, atmospheric conditions, sky coordinates, exposure time, among others), but generating synthetic observations to mimic existing datasets can be challenging due to the high number of parameters that need to be matched. The SIMIO-continuum set of modules contains all the necessary tools to generate synthetic observations to mimic existing observations without the need to fit every observational parameter manually. 
+Predicting tools from the Common Astronomy Software Applications package (\texttt{CASA}, [@McMullin:2007, @Emonts:2020]) are very well suited for generating synthetic observations with specific observational setups (Antenna Array configuration, atmospheric conditions, sky coordinates, exposure time, among others), but generating synthetic observations to mimic existing datasets can be challenging due to the high number of parameters that need to be matched. The Python-based modules of SIMIO-continuum contain all the necessary tools to generate synthetic observations to mimic existing observations without the need to fit every observational parameter manually. 
 
 
 # State of the field
