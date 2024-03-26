@@ -10,7 +10,10 @@ tags:
 authors:
   - name: Nicolas T. Kurtovic
     orcid: 0000-0002-2358-4796
-    affiliation: Max-Planck-Institut f\"{u}r Astronomie, K\"{o}nigstuhl 17, 69117, Heidelberg, Germany.
+    affiliation: "1" #
+affiliations:
+ - name: Max-Planck-Institut f\"{u}r Astronomie, K\"{o}nigstuhl 17, 69117, Heidelberg, Germany.
+   index: 1
 date: 26 March 2024
 bibliography: paper.bib
 
