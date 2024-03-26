@@ -11,7 +11,6 @@ authors:
   - name: Nicolas T. Kurtovic
     orcid: 0000-0002-2358-4796
     affiliation: Max-Planck-Institut f\"{u}r Astronomie, K\"{o}nigstuhl 17, 69117, Heidelberg, Germany.
-    affiliation: Max-Planck-Institut f\"{u}r Extraterrestrische Physik, Gie{\ss}enbachstra{\ss}e 1, 85748 Garching, Germany.
 date: 26 March 2024
 bibliography: paper.bib
 
